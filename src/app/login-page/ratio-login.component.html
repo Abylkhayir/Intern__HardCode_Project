@@ -1,0 +1,27 @@
+<div class="auth-page">
+	<div class="auth-container">
+		 <img src="assets/img/icon/ico2.svg" alt="logo" class="logo">
+		 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+			  <div class="title">
+					<img src="assets/img/icon/Outdoor.svg" alt="enter logo" class="logo-title">
+					<span>ВХОД В СИСТЕМУ</span>
+			  </div>
+			  <div class="form-group">
+					<label  for="username">Логин</label>
+					<input formControlName="username" type="email" name="username" placeholder="Введите логин" required>
+					<div class="case" [ngSwitch]="loginErrorType">
+						 <span *ngSwitchCase="1" class="text-danger">Заполните поле логин</span>
+					</div>
+			  </div>
+			  <div class="form-group">
+					<label for="password">Пароль</label>
+					<input formControlName="password" type="password" name="password" placeholder="Введите пароль" required>
+					<span *ngIf="passwordError" class="case text-danger">Введите пароль содержащий от 6 символов</span>
+			  </div>
+			  <div class="form__button">
+					<button class="btn btn-success" type="submit">Войти</button>
+			  </div>
+		 </form>
+		 <div class="form__bg"></div>
+	</div>
+</div>
