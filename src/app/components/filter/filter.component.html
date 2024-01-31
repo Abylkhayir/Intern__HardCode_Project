@@ -1,0 +1,37 @@
+<div class="search-block">
+	<div class="search-block-left-side">
+		 <img src="assets/img/icon/ratio.svg">
+		 <span>Рации</span>
+			  <div class="search-container">
+					<img class="search__img" src="assets/img/icon/search.svg">
+					<input class="search__forminput" type="text" placeholder="Поиск по № рации, ID тага и ФИО" 
+					[(ngModel)]="inputVal"
+					(ngModelChange)="getInputVal()"
+					>
+			  </div>
+		 <div class="search-numbers">
+			  <input type="text" placeholder="Номер стола"
+			  [(ngModel)]="inputStol"
+			  (ngModelChange)="getInputVal()"
+			  >
+			  <input type="text" placeholder="Номер места"
+			  [(ngModel)]="inputMesto"
+			  (ngModelChange)="getInputVal()"
+			  >
+			  <img src="assets/img/icon/cross.svg">
+		 </div>
+	</div>
+	<div class="search-block-right-side">
+		 <div class="adding-radio" routerLink="/add-radio">
+			  <img src="assets/img/icon/ratio.svg">
+			  <span>Добавить рацию</span>
+		 </div>  
+		 <select (change)="onSelectChange($event)" class="dropdown">
+			  <option *ngFor="let option of options" [value]="option.value">{{ option.label }}</option>
+		 </select>
+		 <button class="search-add">
+			  <img src="assets/img/icon/window.svg">
+		 </button>
+	</div>
+</div>
+

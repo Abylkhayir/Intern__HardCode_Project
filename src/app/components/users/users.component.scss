@@ -1,0 +1,129 @@
+.users-block{
+	margin: 10px 10px;
+	border: 3px solid #6D6D6D;
+	background-color: rgba(34, 34, 34, 0.50);
+	.titles{
+		 display: flex;
+		 align-items: center;
+
+		 .title-block-small{
+			  margin-right: 5px;
+			  width: 5%;
+			 // border: 1px solid #4D4D4D;
+		 }
+		 .title-block-medium{
+			  margin-right: 5px;
+			  width: 10%;
+			  text-align: center;
+		 }
+		 .title-block-diff{
+			  margin-right: 5px;
+			  width: 35%;
+		 }
+		 .title-block-wide{
+			  margin-right: 5px;
+			  padding: 10px;
+			  width: 40%;
+		 }
+		 span{
+			  color: #4D4D4D;
+			  font-family: Roboto;
+			  font-size: 12px;
+			  font-style: normal;
+			  font-weight: 700;
+			  line-height: normal;
+		 }
+	}
+
+	.user-data{
+		 display: flex;
+
+		 .user-data-content{
+			  
+		 }
+		 .user-data-content-wide{
+			  margin-right: 5px;
+			  margin-bottom: 5px;
+
+			  //border: 1px solid red;
+			  background-color: #222222;
+			  width: 40%;
+			  display: flex;
+			  flex-direction: column;
+			  padding: 10px;
+			  justify-content: center;
+			  .dark-span{
+					color: #808080;
+					font-size: 16px;
+					font-weight: 400;
+			  }
+			  .bright-span{
+					color: #B3B3B3;
+					font-size: 16px;
+					font-weight: 400;
+			  }
+		 }
+		 .user-data-content-diff{
+			  margin-right: 5px;
+			  margin-bottom: 5px;
+
+			//  border: 1px solid green;
+			  background-color: #222222;
+			  padding: 10px;
+			  width: 35%;
+			  display: flex;
+			  flex-direction: column;
+			  .dark-span{
+					color: #808080;
+					font-size: 16px;
+					font-weight: 400;
+			  }
+			  .bright-span{
+					color: #B3B3B3;
+					font-size: 16px;
+					font-weight: 400;
+			  }
+		 }
+		 .user-data-content-medium{
+			  background-color: #222222;
+			  margin-right: 5px;
+			  margin-bottom: 5px;
+
+			 // border: 1px solid yellow;
+			  width: 10%;
+			  display: flex;
+			  align-items: center;
+			  justify-content: center;
+			  .dark-span{
+					color: #808080;
+					font-size: 16px;
+					font-weight: 400;
+			  }
+			  .bright-span{
+					color: #B3B3B3;
+					font-size: 16px;
+					font-weight: 400;
+			  }
+		 }   
+		 .user-data-content-small{
+			  background-color: #222222;
+			  margin-right: 5px;
+			  margin-bottom: 5px;
+			  //border: 1px solid orange;
+			  width: 5%;
+			  display: flex;
+			  align-items: center;
+			  justify-content: center;
+			  .dark-span{
+					color: #808080;
+					font-size: 14px;
+					font-weight: 400;
+			  }
+			  .bright-span{
+					color: #B3B3B3;
+					font-size: 14px;
+					font-weight: 400;
+			  }
+		 }
+	}
+}

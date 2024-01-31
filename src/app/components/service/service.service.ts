@@ -1,0 +1,12 @@
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class ServiceService {
+  inputVal:string='';
+
+  updateInputVal(newValue : string){
+    this.inputVal = newValue;
+  }
+}

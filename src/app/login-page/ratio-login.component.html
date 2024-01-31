@@ -2,6 +2,7 @@
 	<div class="auth-container">
 		 <img src="assets/img/icon/ico2.svg" alt="logo" class="logo">
 		 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+			<div class="bg__container">
 			  <div class="title">
 					<img src="assets/img/icon/Outdoor.svg" alt="enter logo" class="logo-title">
 					<span>ВХОД В СИСТЕМУ</span>
@@ -21,7 +22,8 @@
 			  <div class="form__button">
 					<button class="btn btn-success" type="submit">Войти</button>
 			  </div>
+			</div>
+			<div class="form__bg"></div>
 		 </form>
-		 <div class="form__bg"></div>
 	</div>
 </div>

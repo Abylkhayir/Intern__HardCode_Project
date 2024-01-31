@@ -6,4 +6,10 @@ import { Component } from '@angular/core';
   styleUrl: './ratio-table.component.css',
   
 })
-export class RatioTableComponent {}
+export class RatioTableComponent {
+	inputVal:object;
+  updateInputVal(newValue: object) {
+    this.inputVal = newValue; 
+    console.log('Updated inputVal:', this.inputVal); 
+  }
+}

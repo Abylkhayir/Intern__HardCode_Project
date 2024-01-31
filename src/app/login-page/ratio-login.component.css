@@ -48,6 +48,11 @@
 						 color: #B8B8B8;
 					}
 			  }
+			  .bg__container{
+				position: relative;
+				background: transparent;
+				z-index: 2;
+			  }
 			  .form__bg{
 				position: absolute;
 				width: 100%;

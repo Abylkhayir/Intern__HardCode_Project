@@ -9,7 +9,8 @@ import { PagesComponent } from './pages.component';
 import { RatioTableComponent } from './pages/ratio-page/ratio-table.component';
 import { HeaderComponent } from '../components/header/header.component';
 import { CommonModule } from '@angular/common';
-import {DropdownInputComponent} from '../components/dropdown-input/dropdown-input.component'
+import { FilterComponent } from '../components/filter/filter.component';
+import { UsersComponent } from '../components/users/users.component';
 
 @NgModule({
   declarations: [PagesComponent, RatioTableComponent],
@@ -21,7 +22,8 @@ import {DropdownInputComponent} from '../components/dropdown-input/dropdown-inpu
     MatFormFieldModule,
     PagesRoutingModule,
     HeaderComponent,
-	 DropdownInputComponent
+	 FilterComponent,
+	 UsersComponent
   ],
   providers: [],
   bootstrap: [PagesComponent],

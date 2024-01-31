@@ -7,7 +7,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RatioLoginComponent } from './login-page/ratio-login.component';
-
 @NgModule({
   declarations: [AppComponent, RatioLoginComponent],
   imports: [

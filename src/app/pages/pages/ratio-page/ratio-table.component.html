@@ -1,27 +1,4 @@
-<main class="main">
-	<div class="main__container">
-		<div class="main__search">
-			<div class="search__leftside">
-				<div class="leftside__ratioicon"><img src="assets/img/icon/ratio.svg" alt=""></div>
-				<div class="leftside__rationame">РАЦИИ</div>
-				<div class="leftside__searchbox">
-					<img src="assets/img/icon/search.svg" class="leftside__searchicon">
-					<input class="leftside__ratiosearch" type="text" placeholder="Поиск по № рации, ID тага и ФИО">
-				</div>
-				<div class="leftside__numberbox">
-					<input class="leftside__table" type="text" placeholder="Номер стола">
-					<input class="leftside__place" type="text" placeholder="Номер места">
-					<div class="leftside__button"><img src="assets/img/icon/cross.svg" alt=""></div>
-				</div>
-			</div>
-			<div class="search__rightside">
-				<div class="rightside__addratio">
-					<img class="addratio__img" src="assets/img/icon/ratio.svg" alt="">
-					<div class="addratio__text">Добавить рацию</div>
-				</div>
-				<div class="rightside__statusratio"><app-dropdown-input></app-dropdown-input></div>
-				<div class="rightside__cancel"><img src="assets/img/icon/window.svg" alt=""></div>
-			</div>
-		</div>
-	</div>
-</main>
+<div class="main">
+	<app-filter (inputValChange)="updateInputVal($event)"></app-filter>
+	<app-users [inputVal]="inputVal"></app-users>
+</div>

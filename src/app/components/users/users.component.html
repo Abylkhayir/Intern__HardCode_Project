@@ -1,0 +1,53 @@
+<div class="users-block">
+	<div class="titles">
+		 <div class="title-block-wide"><span >№ рации / Закреплен</span></div>
+		 <div class="title-block-small"><span>Редакт.</span></div>
+		 <div class="title-block-medium"><span>ID тага</span></div>
+		 <div class="title-block-medium"><span>№ стола / Место</span></div>
+		 <div class="title-block-small"><span>Замена</span></div>
+		 <div class="title-block-small"><span>История ремонта</span></div>
+		 <div class="title-block-diff"><span>Последняя регистрация рации / Место последней синхронизации</span></div>
+		 <div class="title-block-small"><span>Статус рации</span></div>
+		 <div class="title-block-small"><span>Ремонт</span></div>
+		 <div class="title-block-small"><span>Удалить</span></div>
+	</div>
+	<div class="user-data" *ngFor="let user of newArr; let i = index">
+		 <div class="user-data-content-wide" [style.background-color]="color[i]">
+			  <span class="bright-span">{{user.id}}</span>
+			  <span class="dark-span">{{user.name}}</span>
+		 </div>
+		 <div class="user-data-content-small" [style.background-color]="color[i]">
+			  <img src="../../../../assets/update.png">
+		 </div>
+		 <div class="user-data-content-medium" [style.background-color]="color[i]">
+			  <span class="bright-span">{{user.id_taga}}</span>
+		 </div>
+		 <div class="user-data-content-medium" [style.background-color]="color[i]">
+			  <span class="bright-span">{{user.id_stola + ' / ' + user.id_mesto}}</span>
+		 </div>
+		 <div class="user-data-content-small" [style.background-color]="color[i]">
+			  <img src="../../../../assets/change.png">
+		 </div>
+		 <div class="user-data-content-small" [style.background-color]="color[i]">
+			  <img src="../../../../assets/setting.png">
+		 </div>
+		 <div class="user-data-content-diff d-flex" [style.background-color]="color[i]">
+			  <span class="bright-span">{{user.date}}</span>
+			  <span class="dark-span">{{user.place}}</span>
+		 </div>
+		 <div class="user-data-content-small" [style.background-color]="color[i]">
+			  @if (fonarClick[i]) {
+					<img src="../../../../assets/fonarClick.png" (click)="fonarClick[i] = !fonarClick[i]">
+			  }
+			  @else {
+					<img src="../../../../assets/fonar.png" (click)="fonarClick[i] = !fonarClick[i]">
+			  }
+		 </div>
+		 <div class="user-data-content-small" [style.background-color]="color[i]">
+			  <img src="../../../../assets/settings.png">
+		 </div>
+		 <div class="user-data-content-small" [style.background-color]="color[i]">
+			  <img src="../../../../assets/delete.png">
+		 </div>
+	</div>
+</div>
