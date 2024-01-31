@@ -11,6 +11,7 @@ import { HeaderComponent } from '../components/header/header.component';
 import { CommonModule } from '@angular/common';
 import { FilterComponent } from '../components/filter/filter.component';
 import { UsersComponent } from '../components/users/users.component';
+import { AddRadioComponent } from '../components/add-radio/add-radio.component';
 
 @NgModule({
   declarations: [PagesComponent, RatioTableComponent],
@@ -23,7 +24,8 @@ import { UsersComponent } from '../components/users/users.component';
     PagesRoutingModule,
     HeaderComponent,
 	 FilterComponent,
-	 UsersComponent
+	 UsersComponent,
+	 AddRadioComponent
   ],
   providers: [],
   bootstrap: [PagesComponent],

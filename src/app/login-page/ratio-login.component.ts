@@ -47,11 +47,11 @@ export class RatioLoginComponent implements OnInit{
 			  }
 			}
 			if (passwordError){
-			  if (passwordError){
-				 this.passwordError = true;
-				 console.log("Fill password field with at least 6 symbols");
-			  }
+				if (passwordError){
+					this.passwordError = true;
+					console.log("Fill password field with at least 6 symbols");
+				}
 			}
+		}
 	}
-}
 }
