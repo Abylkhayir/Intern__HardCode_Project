@@ -69,8 +69,6 @@ export class FilterComponent {
   ];
 
   openDialog(): void {
-    this.dialog.open(AddRadioComponent, {
-      width: '400px',
-    });
+    this.dialog.open(AddRadioComponent, {});
   }
 }
