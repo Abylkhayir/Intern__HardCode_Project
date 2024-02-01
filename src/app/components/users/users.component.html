@@ -17,7 +17,7 @@
 			  <span class="dark-span">{{user.name}}</span>
 		 </div>
 		 <div class="user-data-content-small" [style.background-color]="color[i]">
-			  <img src="/assets/img/icon/pen.svg">
+			  <img (click)="onUpdateUser(i)" src="/assets/img/icon/pen.svg">
 		 </div>
 		 <div class="user-data-content-medium" [style.background-color]="color[i]">
 			  <span class="bright-span">{{user.id_taga}}</span>
@@ -47,7 +47,7 @@
 			  <img src="/assets/img/icon/repairMini.svg">
 		 </div>
 		 <div class="user-data-content-small" [style.background-color]="color[i]">
-			  <img src="/assets/img/icon/buckerDelete.svg">
+			  <img (click)="onDeleteUser(user)" src="/assets/img/icon/buckerDelete.svg">
 		 </div>
 	</div>
 </div>

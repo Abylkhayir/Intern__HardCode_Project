@@ -27,14 +27,22 @@
 					display: flex;
 					align-items: center;
 			  }
+
+			  .close-button:hover{
+					cursor: pointer;
+					.close-button-icon{
+						 stroke: red;
+					}
+			  }
 		 }
 
 		 .input-field{
+			  max-height: 580px;
 			  .form-group{
 					display: flex;
 					flex-direction: column;
-					height: 40px;   
-					margin: 20px 13px;
+					justify-content: space-between;
+					margin: 10px 13px;
 					label{
 						 color: #4D4D4D;
 						 font-size: 12px;
@@ -81,7 +89,7 @@
 
 
 		 .button-field{
-			  margin: 50px 13px;
+			  margin: 20px 13px;
 			  .button-block{
 					display: flex;
 					justify-content: end;
@@ -94,6 +102,9 @@
 						 align-items: center;
 						 img{
 							  margin-right: 5px;
+						 }
+						 &:hover{
+							  opacity: 0.8;
 						 }
 					}
 					.btn-success{

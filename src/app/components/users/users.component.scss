@@ -1,7 +1,9 @@
 .users-block{
-	margin: 10px 0px;
+	margin: 10px 10px;
 	border: 3px solid #6D6D6D;
 	background-color: rgba(34, 34, 34, 0.50);
+	max-height: 80%;
+	overflow-y: auto;
 	.titles{
 		 display: flex;
 		 align-items: center;
@@ -9,6 +11,7 @@
 		 .title-block-small{
 			  margin-right: 5px;
 			  width: 5%;
+			 // border: 1px solid #4D4D4D;
 		 }
 		 .title-block-medium{
 			  margin-right: 5px;
@@ -36,7 +39,6 @@
 
 	.user-data{
 		 display: flex;
-
 		 .user-data-content{
 			  
 		 }
@@ -87,6 +89,8 @@
 			  background-color: #222222;
 			  margin-right: 5px;
 			  margin-bottom: 5px;
+
+			 // border: 1px solid yellow;
 			  width: 10%;
 			  display: flex;
 			  align-items: center;
@@ -121,6 +125,19 @@
 					font-size: 14px;
 					font-weight: 400;
 			  }
+			  .update-button:hover{
+					cursor: pointer;
+					.update-button-icon{
+						 fill: #4D4D4D;
+					}
+			  }
+			  .delete-button:hover{
+					cursor: pointer;
+					.delete-button-icon{
+						 fill: red;
+					}
+			  }   
 		 }
 	}
 }
+

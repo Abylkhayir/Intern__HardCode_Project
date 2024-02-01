@@ -18,11 +18,11 @@
 			  [(ngModel)]="inputMesto"
 			  (ngModelChange)="getInputVal()"
 			  >
-			  <img src="assets/img/icon/cross.svg">
+			  <img src="assets/img/icon/cross.svg" (click)="onDelete()">
 		 </div>
 	</div>
 	<div class="search-block-right-side">
-		 <div class="adding-radio" routerLink="/add-radio">
+		 <div class="adding-radio" (click)="openDialog()">
 			  <img src="assets/img/icon/ratio.svg">
 			  <span>Добавить рацию</span>
 		 </div>  
