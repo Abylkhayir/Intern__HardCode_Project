@@ -2,16 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { users } from '../users/data';
-import { FilterComponent } from '../filter/filter.component';
-import { UsersComponent } from '../users/users.component';
-import {
-  MatDialog,
-  MatDialogRef,
-  MatDialogActions,
-  MatDialogClose,
-  MatDialogTitle,
-  MatDialogContent,
-} from '@angular/material/dialog';
+import {MatDialogRef} from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 
 @Component({
@@ -23,10 +14,6 @@ import { MatButtonModule } from '@angular/material/button';
     CommonModule,
     FormsModule,
     MatButtonModule,
-    MatDialogActions,
-    MatDialogClose,
-    MatDialogTitle,
-    MatDialogContent,
   ],
 })
 export class AddRadioComponent {
