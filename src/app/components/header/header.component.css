@@ -1,6 +1,7 @@
 .header{
 	background-image: url('/assets/img/icon/bg.svg');
 }
+
 .header__row {
 	display: flex;
 	justify-content: space-between;
@@ -9,7 +10,7 @@
 	height: 59px;
 }
 .header__group {
-	width: 49px;
+	width: 2.5%;
 	height: 49px;
 	border: 2px solid #222;
 	background-color: #222;
@@ -17,25 +18,29 @@
 }
 
 .header__logo {
-	width: 111px;
+	width: 5.7%;
 	height: 49px;
 	border: 2px solid #222;
 	background-color: #222;
 	padding: 9px;
 }
+.logo__img{
+	width: 97%
+}
+
 .header__mine {
-	width: 210px;
+	width: 10.9%;
 	height: 49px;
 	background-color: rgba(34, 34, 34, 0.50);
 }
 .mine__title{
-	margin: 0px 38px;
 	color: #666;
 	text-align: center;
 	font-family: Roboto;
 	font-size: 14px;
 }
 .mine__date{
+	text-align: center;
 	color: #B3B3B3;
 	font-family: Roboto;
 	font-size: 18px;
@@ -43,7 +48,6 @@
 	font-weight: 900;
 	letter-spacing: 0.36px;
 	text-transform: uppercase;
-	margin: 0px 19px;
 }
 .header__sectionone {
 	display:flex;
@@ -52,7 +56,7 @@
 	border: 2px solid #222;
 	background-color: #222;
 	height: 49px;
-	width: 226px;
+	width: 11.7%;
 }
 .header__sectiontwo {
 	display:flex;
@@ -61,16 +65,17 @@
 	border: 2px solid #222;
 	background-color: #222;
 	height: 49px;
-	width: 165px;
+	width: 8.6%;
 }
 .header__sectionthree {
+	padding: 0px 20px;
 	display:flex;
 	justify-content: space-evenly;
 	align-items: center;
 	border: 2px solid #222;
 	background-color: #222;
 	height: 49px;
-	width: 144px;
+	width: 7.5%;
 }
 .header__sectionfour {
 	display:flex;
@@ -79,16 +84,17 @@
 	border: 2px solid #222;
 	background-color: #222;
 	height: 49px;
-	width: 223px;
+	width: 11.6%;
 }
 .header__sectionfive {
+	padding: 0px 23.04px;
 	display:flex;
-	justify-content: space-evenly;
+	justify-content: start;
 	align-items: center;
 	border: 2px solid #222;
 	background-color: #222;
 	height: 49px;
-	width: 171px;
+	width: 8.9%;
 }
 .header__sectionsix {
 	display:flex;
@@ -97,7 +103,7 @@
 	border: 2px solid #222;
 	background-color: #222;
 	height: 49px;
-	width: 194px;
+	width: 10.1%;
 }
 
 .section__imgone {
@@ -154,7 +160,8 @@ font-size: 16px;
 font-style: normal;
 font-weight: 500;
 line-height: 16px; /* 100% */
-text-transform: uppercase;;
+text-transform: uppercase;
+margin-left: 12px;
 }
 .section__imgsix {
 }
@@ -171,7 +178,7 @@ text-transform: uppercase;
 	display: flex;
 	align-items: center;
 	justify-content: space-evenly;
-	width: 273px;
+	width: 14.21%;
 	border: 2px solid #222;
 	background-color: #222;
 	height: 49px;
@@ -191,16 +198,18 @@ font-family: Roboto;
 font-size: 14px;
 }
 .header__settings {
-	width: 49px;
+	width: 2.55%;
 	height: 49px;
 	border: 2px solid #222;
 	background-color: #222;
-	padding: 13px;
+	justify-content: center;
+	text-align: center;
 }
 .header__logout {
-	width: 49px;
+	width: 2.55%;
 	height: 49px;
 	border: 2px solid #222;
 	background-color: #222;
-	padding: 13px;
+	justify-content: center;
+	text-align: center;
 }
