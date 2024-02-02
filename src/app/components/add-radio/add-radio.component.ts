@@ -4,7 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { users } from '../users/data';
 import { MatDialogRef } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
-
+import { SelectionModel } from '@angular/cdk/collections';
+//import { img } from '../../../assets/img/icon/lampoff'
 @Component({
   standalone: true,
   selector: 'app-add-radio',
@@ -19,8 +20,8 @@ export class AddRadioComponent {
     this.selectedOption = this.options[0].value;
     this.racia = {
       idRacia: undefined,
-      rudnikName: '',
-      name: '',
+      rudnikName: this.mine[0].value,
+      name: this.secured[0].value,
       idTaga: undefined,
       idStol: undefined,
       idMesto: undefined,
@@ -28,8 +29,8 @@ export class AddRadioComponent {
   }
 
   mine: Array<{ value: string; label: string }> = [
-    { value: 'mine1', label: 'Рудник Долинный' },
-    { value: 'mine2', label: 'Mine two' },
+    { value: 'Рудник Долинный', label: 'Рудник Долинный' },
+    { value: 'Mine two', label: 'Mine two' },
   ];
 
   secured: Array<{ value: string; label: string }> = [
@@ -41,7 +42,7 @@ export class AddRadioComponent {
     {
       value: 'option1',
       label: 'Смена 1 (9:00-19:00)',
-      image: '/assets/img/icon/lampon.svg',
+      image: '../../../assets/img/icon/lampoff',
     },
     {
       value: 'option2',
@@ -50,9 +51,16 @@ export class AddRadioComponent {
     },
   ];
 
-  onSelectChange(event: Event): void {
-    const selectElement = event.target as HTMLSelectElement;
-    this.selectedOption = JSON.parse(selectElement.value);
+  onSelectChange(event: Event): void {   
+    console.log((event.target as HTMLSelectElement).className);
+    const className = (event.target as HTMLSelectElement).className;
+    const selectedItem = (event.target as HTMLSelectElement).value;
+    if (className == 'dropdown__mine'){
+      this.racia.rudnikName = selectedItem;
+    }
+    else if (className == 'dropdown__secured'){
+      this.racia.name = selectedItem;
+    }
   }
 
   getValue() {
@@ -60,14 +68,16 @@ export class AddRadioComponent {
   }
 
   addRacia() {
+    console.log(this.racia);
+    
     users.push({
       id: this.racia.idRacia,
       name: this.racia.name,
       id_taga: this.racia.idTaga,
       id_stola: this.racia.idStol,
       id_mesto: this.racia.idMesto,
-      date: null,
-      place: null,
+      date: '22.04.2020 12:40 (116дн. 23ч.)',
+      place: 'Ламповая старое АБК',
     });
     this.dialogRef.close();
   }

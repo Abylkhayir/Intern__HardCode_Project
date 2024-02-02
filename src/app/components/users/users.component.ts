@@ -25,7 +25,7 @@ export class UsersComponent implements OnChanges {
   newArr: User[] = [];
   @Input() inputVal;
 
-  constructor() {
+  constructor(private service: ServiceService) {
     this.newArr = users;
     for (let i = 0; i < this.newArr.length; i++) {
       this.fonarClick[i] = false;
@@ -53,7 +53,7 @@ export class UsersComponent implements OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log('Test: ', this.newArr);
+    console.log();
     this.newArr = users.filter((item) => {
       const nameFilter = this.inputVal.inputName
         ? item.name

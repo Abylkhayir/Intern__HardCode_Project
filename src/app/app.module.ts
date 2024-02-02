@@ -8,6 +8,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RatioLoginComponent } from './login-page/ratio-login.component';
 import { DialogModule } from '@angular/cdk/dialog';
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [AppComponent, RatioLoginComponent],
   imports: [
@@ -19,6 +21,7 @@ import { DialogModule } from '@angular/cdk/dialog';
     MatFormFieldModule,
     AppRoutingModule,
     DialogModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],
