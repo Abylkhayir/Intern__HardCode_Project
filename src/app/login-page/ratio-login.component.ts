@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ServiceService } from '../components/service/service.service';
 
 
 @Component({
@@ -18,18 +19,32 @@ export class RatioLoginComponent implements OnInit{
 	ngOnInit(): void {
 		this.loginForm = this.formBuilder.group({
 		  username: ['', [Validators.required]],
-		  password: ['', [Validators.required, Validators.minLength(6)]]
+		  password: ['', [Validators.required, Validators.minLength(3)]]
 		})
 	 }
 	 
  
-	 constructor(private formBuilder: FormBuilder, private router:Router){}
+	 constructor(
+		private formBuilder: FormBuilder, 
+		private router:Router,
+		private service: ServiceService
+		){}
 
 	 onSubmit(){
 		if (this.loginForm.valid) {
 		  const username = this.loginForm.get('username').value;
 		  const password = this.loginForm.get('password').value;
 		  console.log('The form is valid: ', this.loginForm.value);
+		  this.service.login({Login: username, password: password})
+		  .subscribe( data => {
+				this.service.saveToken(data.token);
+				//this.router.navigate['pages'];
+		  	},
+			error => {
+				console.log("Type: ", error);
+				
+			}
+		  )
 		  this.router.navigate(['pages']);
 		}
 		else{
