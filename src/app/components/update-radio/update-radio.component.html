@@ -3,7 +3,7 @@
 		 <div class="upper-side">
 			  <div class="upper-side-left-part">
 					<img class="left-part__img" src="/assets/img/icon/ratio.svg">
-					<span>ДОБАВИТЬ РАЦИЮ</span>
+					<span>ОбНОВИТЬ РАЦИЮ</span>
 			  </div>
 			<div class="close__buttoncont">
 			  <svg (click)="closeDialog()" class="close-button" xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
@@ -15,7 +15,7 @@
 		 <div class="input-field">
 			  <div class="form-group">
 					<label for="no">Номер рации</label>
-					<input type="text" name="no" placeholder="Введите номер" [(ngModel)]="racia.idRacia">
+					<input type="text" name="no" placeholder="Введите номер">
 			  </div>
 			  <div class="form-group">
 					<label for="rudnik">Рудник</label>
@@ -31,16 +31,16 @@
 			  </div>
 			  <div class="form-group">
 					<label for="id">ID тага</label>
-					<input type="text" name="id" placeholder="Введите ID" [(ngModel)]="racia.idTaga">
+					<input type="text" name="id" placeholder="Введите ID" >
 			  </div>
 			  <div class="form-group-exception">
 					<div class="form-group">
 						 <label for="stol">№ стола </label>
-						 <input type="text" name="stol" placeholder="Введите номер стола " [(ngModel)]="racia.idStol">
+						 <input type="text" name="stol" placeholder="Введите номер стола ">
 					</div>
 					<div class="form-group">
 						 <label for="mesto">Место</label>
-						 <input type="text" name="mesto" placeholder="Введите номер места " [(ngModel)]="racia.idMesto">
+						 <input type="text" name="mesto" placeholder="Введите номер места " >
 					</div>
 			  </div>
 			  <div class="form-group-exception">
@@ -58,7 +58,7 @@
 						 <img src="/assets/img/icon/cancel.svg">
 						 Отменить
 					</button>
-					<button class="btn btn-success" (click)="addRacia()">
+					<button class="btn btn-success">
 						 <img src="/assets/img/icon/save.svg">Сохранить
 					</button>
 			  </div>

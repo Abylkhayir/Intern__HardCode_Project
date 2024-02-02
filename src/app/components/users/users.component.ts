@@ -7,10 +7,12 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { ServiceService } from '../service/service.service';
 import { users } from '../users/data';
 import { AddRadioComponent } from '../add-radio/add-radio.component';
 import { FilterComponent } from '../filter/filter.component';
+import { MatDialog } from '@angular/material/dialog';
+import { UpdateRadioComponent } from '../update-radio/update-radio.component';
+import { ServiceService } from '../service/service.service';
 
 @Component({
   standalone: true,
@@ -19,29 +21,48 @@ import { FilterComponent } from '../filter/filter.component';
   styleUrl: './users.component.scss',
   imports: [CommonModule, FormsModule, AddRadioComponent, FilterComponent],
 })
-export class UsersComponent implements OnChanges {
-  color: string[] = [];
-  fonarClick: boolean[] = [];
-  newArr: User[] = [];
-  @Input() inputVal;
+export class UsersComponent implements OnInit,OnChanges {
+  color: string[] = []; // для бэкграунд цвета
+  fonarClick: boolean[] = []; // определяет статус 
+  newArr: User[] = []; // список юзеров
+  @Input() inputVal:any;
 
-  constructor(private service: ServiceService) {
+  constructor(public dialog: MatDialog, public service: ServiceService) {
+    
+    
+  }
+
+  ngOnInit(): void {
     this.newArr = users;
     for (let i = 0; i < this.newArr.length; i++) {
       this.fonarClick[i] = false;
-      if (i % 2 == 0) {
+      if (i % 2 == 0) { // для бэкграунд фона
         this.color[i] = '#222';
       } else {
         this.color[i] = 'rgba(34, 34, 34, 0.50)';
       }
     }
+    this.service.getValue().subscribe(
+      data => {
+        console.log(data);
+      },
+      error => {
+        console.log(error);
+        
+      }
+    )
   }
-
   onUpdateUser(id: number) {
     console.log(id, this.newArr[id]);
+    this.dialog.open(UpdateRadioComponent, {
+      data: {
+        userId: id,
+        userValue: this.newArr[id]
+      }
+    });
   }
 
-  onDeleteUser(user) {
+  onDeleteUser(user) { // Удаление юзера
     this.newArr = this.newArr.filter(
       (item) =>
         !(
@@ -54,7 +75,7 @@ export class UsersComponent implements OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     console.log();
-    this.newArr = users.filter((item) => {
+    this.newArr = users.filter((item) => { // Логика фильтрации
       const nameFilter = this.inputVal.inputName
         ? item.name
             .toLowerCase()

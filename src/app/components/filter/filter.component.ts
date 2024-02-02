@@ -23,9 +23,7 @@ import {
     CommonModule,
     FormsModule,
     DialogModule,
-    AddRadioComponent,
-    UsersComponent,
-	 MatButtonModule, MatDialogActions, MatDialogClose, MatDialogTitle, MatDialogContent
+	  MatButtonModule, MatDialogActions, MatDialogClose, MatDialogTitle, MatDialogContent
   ],
 })
 export class FilterComponent {
