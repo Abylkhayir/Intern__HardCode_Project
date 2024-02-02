@@ -43,15 +43,14 @@
 						 <input type="text" name="mesto" placeholder="Введите номер места " [(ngModel)]="racia.idMesto" (ngModelChange)="getValue()">
 					</div>
 			  </div>
-			  <div class="form-group-exception">
-					<div class="form-status">
-						<img *ngIf="selectedOption" [src]="selectedOption.image" alt="Shift Image">
-						 <select (change)="onSelectChange($event)" class="dropdown">
-							  <option *ngFor="let option of options" [value]="option.value">{{ option.label }}</option>
-						 </select>
-					</div>
+				<div class="form-group">
+					<label for="status">Статус</label>
+					<select (change)="onSelectChange($event)" class="dropdown__status">
+						<option *ngFor="let option of options" [value]="option.value">{{ option.label }}</option>
+				  </select>
+				  <img *ngIf="selectedOption" [src]="selectedOption.image" alt="Shift Image">
+				</div>
 			  </div>
-		 </div>
 		 <div class="button-field">
 			  <div class="button-block">
 					<button class="btn btn-deny" (click)="closeDialog()">
