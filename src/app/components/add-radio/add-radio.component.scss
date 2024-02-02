@@ -79,7 +79,7 @@
 			  }
 
 			  .form-group-exception{
-					display: flex;
+					display:flex;
 					
 					.form-group{
 						 flex-grow: 1;
@@ -89,7 +89,7 @@
 						 flex-grow: 1;
 						 display: flex;
 						 align-items: center;
-						 margin: 13px;
+						 margin:0px 13px ;
 						 .dropdown{
 							  background-color: #222;
 							  flex-grow: 1;
@@ -101,6 +101,12 @@
 							  width: 26px;
 							  height: 26px;
 						 }
+						 label{
+							margin: 0px;
+							 color: #4D4D4D;
+							 font-size: 12px;
+							 font-weight: 500;
+						}
 					}
 			  }
 		 }
@@ -174,6 +180,19 @@ form{
 		font-size: 14px;
 		font-weight: 400;
 		padding: 8px;
+		&:focus{
+			 outline: none;
+		}
+}
+
+.dropdown__status{
+	background-color: #222;
+		border: none;
+		color: #808080;
+		font-size: 14px;
+		font-weight: 400;
+		padding: 8px;
+		margin-bottom:47px;
 		&:focus{
 			 outline: none;
 		}
