@@ -66,7 +66,7 @@ export class AddRadioComponent {
 
 
   addRacia() { // Добавление новой рации
-    console.log(this.racia);
+    console.log(this.racia, users);
     
     users.push({
       id: this.racia.idRacia,
