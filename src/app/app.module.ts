@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { RatioLoginComponent } from './login-page/ratio-login.component';
 import { DialogModule } from '@angular/cdk/dialog';
 import { HttpClientModule } from '@angular/common/http';
+import { UpdateRadioComponent } from './components/update-radio/update-radio.component';
 
 @NgModule({
   declarations: [AppComponent, RatioLoginComponent],

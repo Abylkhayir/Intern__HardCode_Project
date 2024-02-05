@@ -38,14 +38,14 @@ export class RatioLoginComponent implements OnInit{
 		  this.service.login({Login: username, password: password})
 		  .subscribe( data => {
 				this.service.saveToken(data.token);
-				//this.router.navigate['pages'];
+				this.router.navigate(['pages']);
 		  	},
 			error => {
 				console.log("Type: ", error);
 				
 			}
 		  )
-		  this.router.navigate(['pages']);
+		  //this.router.navigate(['pages']);
 		}
 		else{
 			const loginError = this.loginForm.get('username').errors;

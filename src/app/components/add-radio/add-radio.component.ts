@@ -5,8 +5,7 @@ import { users } from '../users/data';
 import { MatDialogRef } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { SelectionModel } from '@angular/cdk/collections';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatSelectModule } from '@angular/material/select';
+//import { img } from '../../../assets/img/icon/lampoff'
 @Component({
   standalone: true,
   selector: 'app-add-radio',
@@ -21,9 +20,10 @@ import { MatSelectModule } from '@angular/material/select';
   ],
 })
 export class AddRadioComponent {
-  selectedOption: string;
-  racia: User;
+  selectedOption: string; // Опция для статуса
+  racia: User; // Объект, который будет хранить данные в полях
   constructor(public dialogRef: MatDialogRef<AddRadioComponent>) {
+    // тут я приписываю изначальные значения 
     this.selectedOption = this.options[0].value;
     this.racia = {
       idRacia: undefined,
@@ -35,17 +35,17 @@ export class AddRadioComponent {
     };
   }
 
-  mine: Array<{ value: string; label: string }> = [
+  mine: Array<{ value: string; label: string }> = [ //  dropdown Рудник и его опций
     { value: 'Рудник Долинный', label: 'Рудник Долинный' },
     { value: 'Mine two', label: 'Mine two' },
   ];
 
-  secured: Array<{ value: string; label: string }> = [
+  secured: Array<{ value: string; label: string }> = [ //  dropdown Закреплено и его опций
     { value: 'secured1', label: 'Бекмаганбетов Мухамбет Мырзабаевич' },
     { value: 'secured2', label: 'secured two' },
   ];
 
-  options: Array<{ value: string; label: string; image: string }> = [
+  options: Array<{ value: string; label: string; image: string }> = [ //  dropdown Статус и его опций
     {
       value: 'option1',
       label: 'Включен',
@@ -58,7 +58,7 @@ export class AddRadioComponent {
     },
   ];
 
-  onSelectChange(event: Event): void {
+  onSelectChange(event: Event): void {   
     console.log((event.target as HTMLSelectElement).className);
     const className = (event.target as HTMLSelectElement).className;
     const selectedItem = (event.target as HTMLSelectElement).value;
@@ -71,11 +71,8 @@ export class AddRadioComponent {
     console.log('ssss: ', this.selectedOption);
   }
 
-  getValue() {
-    console.log(this.racia);
-  }
 
-  addRacia() {
+  addRacia() { // Добавление новой рации
     console.log(this.racia);
 
     users.push({
