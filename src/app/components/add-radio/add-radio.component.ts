@@ -5,13 +5,20 @@ import { users } from '../users/data';
 import { MatDialogRef } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { SelectionModel } from '@angular/cdk/collections';
-//import { img } from '../../../assets/img/icon/lampoff'
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
 @Component({
   standalone: true,
   selector: 'app-add-radio',
   templateUrl: './add-radio.component.html',
   styleUrl: './add-radio.component.scss',
-  imports: [CommonModule, FormsModule, MatButtonModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatSelectModule,
+  ],
 })
 export class AddRadioComponent {
   selectedOption: string;
@@ -41,26 +48,27 @@ export class AddRadioComponent {
   options: Array<{ value: string; label: string; image: string }> = [
     {
       value: 'option1',
-      label: 'Смена 1 (9:00-19:00)',
-      image: '../../../assets/img/icon/lampoff',
+      label: 'Включен',
+      image: '/assets/img/icon/lampon.svg',
     },
     {
       value: 'option2',
-      label: 'Смена 2 (8:00-18:00)',
+      label: 'Выключен',
       image: '/assets/img/icon/lampoff.svg',
     },
   ];
 
-  onSelectChange(event: Event): void {   
+  onSelectChange(event: Event): void {
     console.log((event.target as HTMLSelectElement).className);
     const className = (event.target as HTMLSelectElement).className;
     const selectedItem = (event.target as HTMLSelectElement).value;
-    if (className == 'dropdown__mine'){
+    if (className == 'dropdown__mine') {
       this.racia.rudnikName = selectedItem;
-    }
-    else if (className == 'dropdown__secured'){
+    } else if (className == 'dropdown__secured') {
       this.racia.name = selectedItem;
     }
+
+    console.log('ssss: ', this.selectedOption);
   }
 
   getValue() {
@@ -69,7 +77,7 @@ export class AddRadioComponent {
 
   addRacia() {
     console.log(this.racia);
-    
+
     users.push({
       id: this.racia.idRacia,
       name: this.racia.name,
