@@ -9,7 +9,13 @@ const routes: Routes = [
     component: PagesComponent,
     children: [
       { path: '', redirectTo: 'ratio-list', pathMatch: 'full' },
-      { path: 'ratio-list', component: RatioTableComponent },
+      {
+        path: 'ratio-list',
+        loadChildren: () =>
+          import('./pages/ratio-page/ratio-page.module').then(
+            (m) => m.RatioPageModule
+          ),
+      },
       // { path: not-found', component: notFoundCompopoe },
     ],
   },

@@ -22,18 +22,36 @@ import { ServiceService } from '../service/service.service';
   imports: [CommonModule, FormsModule, AddRadioComponent, FilterComponent],
 })
 export class UsersComponent implements OnInit,OnChanges {
+  @Input() inputVal:any;
+  
   color: string[] = []; // для бэкграунд цвета
   fonarClick: boolean[] = []; // определяет статус 
   newArr: User[] = []; // список юзеров
-  @Input() inputVal:any;
 
   constructor(public dialog: MatDialog, public service: ServiceService) {
-    
-    
+    this.newArr = users;
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log();
+    this.newArr = users.filter((item) => { // Логика фильтрации
+      const nameFilter = this.inputVal.inputName
+        ? item.name
+            .toLowerCase()
+            .includes(this.inputVal.inputName.toLowerCase())
+        : true;
+      const stolFilter = this.inputVal.inputStol
+        ? item.id_stola == this.inputVal.inputStol
+        : true;
+      const mestoFilter = this.inputVal.inputMesto
+        ? item.id_mesto == this.inputVal.inputMesto
+        : true;
+
+      return nameFilter && stolFilter && mestoFilter;
+    });
   }
 
   ngOnInit(): void {
-    this.newArr = users;
     for (let i = 0; i < this.newArr.length; i++) {
       this.fonarClick[i] = false;
       if (i % 2 == 0) { // для бэкграунд фона
@@ -42,16 +60,19 @@ export class UsersComponent implements OnInit,OnChanges {
         this.color[i] = 'rgba(34, 34, 34, 0.50)';
       }
     }
+
+
     this.service.getValue().subscribe(
       data => {
         console.log(data);
       },
       error => {
         console.log(error);
-        
       }
     )
   }
+
+
   onUpdateUser(id: number) {
     console.log(id, this.newArr[id]);
     this.dialog.open(UpdateRadioComponent, {
@@ -73,24 +94,7 @@ export class UsersComponent implements OnInit,OnChanges {
     );
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log();
-    this.newArr = users.filter((item) => { // Логика фильтрации
-      const nameFilter = this.inputVal.inputName
-        ? item.name
-            .toLowerCase()
-            .includes(this.inputVal.inputName.toLowerCase())
-        : true;
-      const stolFilter = this.inputVal.inputStol
-        ? item.id_stola == this.inputVal.inputStol
-        : true;
-      const mestoFilter = this.inputVal.inputMesto
-        ? item.id_mesto == this.inputVal.inputMesto
-        : true;
 
-      return nameFilter && stolFilter && mestoFilter;
-    });
-  }
 }
 interface User {
   id: number;
