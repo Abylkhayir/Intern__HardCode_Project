@@ -97,3 +97,26 @@ export const users = [
 	  place: 'Ламповая старое АБК'
 	}
  ]
+
+ export const mine: Array<{ value: string; label: string }> = [ //  dropdown Рудник и его опций
+ { value: 'Рудник Долинный', label: 'Рудник Долинный' },
+ { value: 'Mine two', label: 'Mine two' },
+];
+
+export const secured: Array<{ value: string; label: string }> = [ //  dropdown Закреплено и его опций
+ { value: 'Бекмаганбетов Мухамбет Мырзабаевич', label: 'Бекмаганбетов Мухамбет Мырзабаевич' },
+ { value: 'Didar Umirov', label: 'Didar Umirov' },
+];
+
+export const options: Array<{ value: string; label: string; image: string }> = [ //  dropdown Статус и его опций
+ {
+   value: 'option1',
+   label: 'Смена 1 (9:00-19:00)',
+   image: '../../../assets/img/icon/lampoff',
+ },
+ {
+   value: 'option2',
+   label: 'Смена 2 (8:00-18:00)',
+   image: '/assets/img/icon/lampoff.svg',
+ },
+];

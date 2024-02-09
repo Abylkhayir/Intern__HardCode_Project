@@ -1,18 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { AddRadioComponent } from '../add-radio/add-radio.component';
-import { Dialog, DialogModule } from '@angular/cdk/dialog';
-import { MatButtonModule } from '@angular/material/button';
-import { UsersComponent } from '../users/users.component';
-import {
-	MatDialog,
-	MatDialogRef,
-	MatDialogActions,
-	MatDialogClose,
-	MatDialogTitle,
-	MatDialogContent,
- } from '@angular/material/dialog';
+import { DialogModule } from '@angular/cdk/dialog';
+import {MatDialog} from '@angular/material/dialog';
+import { ModalComponent } from '../modal/modal.component';
 
 @Component({
   selector: 'app-filter',
@@ -23,7 +14,6 @@ import {
     CommonModule,
     FormsModule,
     DialogModule,
-	  MatButtonModule, MatDialogActions, MatDialogClose, MatDialogTitle, MatDialogContent
   ],
 })
 export class FilterComponent {
@@ -67,6 +57,7 @@ export class FilterComponent {
   ];
 
   openDialog(): void {
-    this.dialog.open(AddRadioComponent, {});
+    this.dialog.open(ModalComponent, {
+    });
   }
 }

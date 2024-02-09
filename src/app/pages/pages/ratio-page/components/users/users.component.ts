@@ -7,34 +7,44 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { users } from '../users/data';
-import { AddRadioComponent } from '../add-radio/add-radio.component';
 import { FilterComponent } from '../filter/filter.component';
 import { MatDialog } from '@angular/material/dialog';
-import { UpdateRadioComponent } from '../update-radio/update-radio.component';
-import { ServiceService } from '../service/service.service';
+import { ModalComponent } from '../modal/modal.component';
+import { RaciaService } from '../../services/racia.service';
+import { from, of, pipe } from 'rxjs';
+import { Observable } from 'rxjs-compat';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { users } from './data';
+import { map } from 'rxjs-compat/operator/map';
 
 @Component({
   standalone: true,
   selector: 'app-users',
   templateUrl: './users.component.html',
   styleUrl: './users.component.scss',
-  imports: [CommonModule, FormsModule, AddRadioComponent, FilterComponent],
+  imports: [CommonModule, FormsModule, FilterComponent, HttpClientModule],
 })
 export class UsersComponent implements OnInit,OnChanges {
   @Input() inputVal:any;
   
   color: string[] = []; // для бэкграунд цвета
-  fonarClick: boolean[] = []; // определяет статус 
+  fonarClick: boolean[] = []; // определяет статус и меняет иконку
   newArr: User[] = []; // список юзеров
 
-  constructor(public dialog: MatDialog, public service: ServiceService) {
-    this.newArr = users;
+
+  constructor(
+    public dialog: MatDialog, 
+    public service: RaciaService,
+    private http : HttpClient
+    ) {
+    this.service.newArr$.subscribe(users => {
+      this.newArr = users;
+    })
+    console.log(this.newArr); 
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log();
-    this.newArr = users.filter((item) => { // Логика фильтрации
+    this.newArr = this.newArr.filter((item) => { // Логика фильтрации
       const nameFilter = this.inputVal.inputName
         ? item.name
             .toLowerCase()
@@ -51,8 +61,13 @@ export class UsersComponent implements OnInit,OnChanges {
     });
   }
 
+  test = [1, 2, 3, 4];
+  users$ = of(this.test);
+
+  obs: any;
+
   ngOnInit(): void {
-    for (let i = 0; i < this.newArr.length; i++) {
+    for (let i = 0; i < 100; i++) {
       this.fonarClick[i] = false;
       if (i % 2 == 0) { // для бэкграунд фона
         this.color[i] = '#222';
@@ -60,42 +75,31 @@ export class UsersComponent implements OnInit,OnChanges {
         this.color[i] = 'rgba(34, 34, 34, 0.50)';
       }
     }
-
-
-    this.service.getValue().subscribe(
-      data => {
-        console.log(data);
-      },
-      error => {
-        console.log(error);
-      }
-    )
+    
   }
 
-
+      
   onUpdateUser(id: number) {
     console.log(id, this.newArr[id]);
-    this.dialog.open(UpdateRadioComponent, {
+    this.dialog.open(ModalComponent, {
       data: {
-        userId: id,
-        userValue: this.newArr[id]
+        id: id, 
+        val: this.newArr[id]
       }
+    }).afterClosed().subscribe(returnData =>{
+      console.log(returnData);
+      
     });
   }
 
-  onDeleteUser(user) { // Удаление юзера
+  onDeleteUser(user){ // Удаление юзера
     this.newArr = this.newArr.filter(
-      (item) =>
-        !(
-          item.id == user.id &&
-          item.name == user.name &&
-          item.id_taga == user.id_taga
-        )
+      (item) => !(item.id == user.id && item.name == user.name && item.id_taga == user.id_taga)
     );
+    this.service.setRacia(this.newArr);
   }
-
-
 }
+
 interface User {
   id: number;
   name: string;
