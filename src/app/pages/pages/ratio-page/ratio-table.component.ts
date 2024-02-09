@@ -11,4 +11,7 @@ export class RatioTableComponent {
     this.inputVal = newValue; 
     console.log('Updated inputVal:', this.inputVal); 
   }
+
+
+  
 }
