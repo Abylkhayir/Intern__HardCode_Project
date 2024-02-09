@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from './authorization.service';
-import { CyrillicValidator } from './CyrillicValidator.component'
+import { CyrillicValidator } from './CyrillicValidator.component';
 
 @Component({
   selector: 'app-authorization',
@@ -42,7 +42,7 @@ export class AuthorizationComponent implements OnInit {
     this.authService.authenticate(username, password).subscribe(
       (response) => {
         const token = response.token;
-        localStorage.setItem('token', token);
+        this.authService.setToken(token);
         this.router.navigate(['pages']);
       },
       (error) => {
