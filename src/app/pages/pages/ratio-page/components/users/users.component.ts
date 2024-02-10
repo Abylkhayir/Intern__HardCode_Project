@@ -30,7 +30,8 @@ export class UsersComponent implements OnInit,OnChanges {
   color: string[] = []; // для бэкграунд цвета
   fonarClick: boolean[] = []; // определяет статус и меняет иконку
   newArr: User[] = []; // список юзеров
-
+  checkFilter: boolean = false;
+  filteredArr: User[] = [];
 
   constructor(
     public dialog: MatDialog, 
@@ -44,7 +45,14 @@ export class UsersComponent implements OnInit,OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    this.newArr = this.newArr.filter((item) => { // Логика фильтрации
+    console.log("Value from Users:" ,this.inputVal);
+    if (this.inputVal.inputName != '' || this.inputVal.inputMesto != null || this.inputVal.inputStol != null){
+      this.checkFilter = true;
+    }
+    else{
+      this.checkFilter = false;
+    }
+    this.filteredArr = this.newArr.filter((item) => { // Логика фильтрации
       const nameFilter = this.inputVal.inputName
         ? item.name
             .toLowerCase()
@@ -86,10 +94,7 @@ export class UsersComponent implements OnInit,OnChanges {
         id: id, 
         val: this.newArr[id]
       }
-    }).afterClosed().subscribe(returnData =>{
-      console.log(returnData);
-      
-    });
+    })
   }
 
   onDeleteUser(user){ // Удаление юзера

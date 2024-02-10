@@ -11,7 +11,7 @@
 		 <div class="title-block-small"><span>Ремонт</span></div>
 		 <div class="title-block-small"><span>Удалить</span></div>
 	</div>
-	<div class="user-data" *ngFor="let user of newArr; let i = index">
+	<div class="user-data" *ngFor="let user of (checkFilter ? filteredArr : newArr); let i = index">
 		 <div class="user-data-content-wide" [style.background-color]="color[i]">
 			  <span class="bright-span">{{user.id}}</span>
 			  <span class="dark-span">{{user.name}}</span>
