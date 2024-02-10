@@ -40,11 +40,11 @@
 			  <span class="dark-span">{{user.place}}</span>
 		 </div>
 		 <div class="user-data-content-small" [style.background-color]="color[i]">
-			  @if (fonarClick[i]) {
-					<img src="/assets/img/icon/lampon.svg" (click)="fonarClick[i] = !fonarClick[i]">
+			  @if (user.status == 'true') {
+					<img src="/assets/img/icon/lampon.svg">
 			  }
 			  @else {
-					<img src="/assets/img/icon/lampoff.svg" (click)="fonarClick[i] = !fonarClick[i]">
+					<img src="/assets/img/icon/lampoff.svg">
 			  }
 		 </div>
 		 <div class="user-data-content-small" [style.background-color]="color[i]">

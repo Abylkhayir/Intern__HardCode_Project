@@ -1,7 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { secured, options } from '../users/data';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { ReactiveFormsModule, FormBuilder, FormGroup } from '@angular/forms';
+import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RaciaService } from '../../services/racia.service';
 
@@ -18,6 +18,7 @@ export class ModalComponent{
   newArr: User[] = [];
   secured = secured;
   options = options;
+  submitted: boolean = false;
 
 
   constructor(
@@ -38,32 +39,43 @@ export class ModalComponent{
     
   ngOnInit(): void {
     this.radioForm = this.formBuilder.group({
-      id: '',
-      name: '',
-      id_taga: '',
-      id_mesto: '',
-      id_stola: '',
-      date: 'date',
-      place: 'place',
+      id: ['', [Validators.required]],
+      name: ['', [Validators.required]],
+      id_taga: ['', [Validators.required]],
+      id_mesto: ['', [Validators.required]],
+      id_stola: ['', [Validators.required]],
+      status: ['', [Validators.required]],
+      date: '22.04.2020 12:40 (116дн. 23ч.)',
+      place: 'Ламповая старое АБК',
     })
-
+        
     if (this.mode == 'update'){
+      
       this.radioForm.patchValue({
         id: this.data.val.id,
         id_taga: this.data.val.id_taga,
         id_stola: this.data.val.id_stola,
         id_mesto: this.data.val.id_mesto,
         name: this.data.val.name,
-        place: 'place',
-        date: 'date',
+        place: '22.04.2020 12:40 (116дн. 23ч.)',
+        date: 'Ламповая старое АБК',
+        status: this.data.val.status,
       })
     }
   }  
 
 
   onSubmit(){
-
+    console.log(this.radioForm.value.status);
+    
+    this.submitted = true;
+    if (!this.radioForm.valid){
+      console.log("NO CHANGE");
+      return;
+    }
     if (this.mode === 'add'){
+      console.log(this.radioForm.value, this.newArr[0]);
+      
       this.newArr.push(this.radioForm.value);
       this.service.setRacia(this.newArr);
       this.dialogRef.close();

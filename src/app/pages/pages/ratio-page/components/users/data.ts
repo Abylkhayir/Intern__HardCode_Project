@@ -6,7 +6,8 @@ export const users = [
 	  id_stola: 50,
 	  id_mesto: 12,
 	  date: '22.04.2020 12:40 (116дн. 23ч.)',
-	  place: 'Ламповая старое АБК'
+	  place: 'Ламповая старое АБК',
+	  status: false,
 	},
 	{
 	  id: 231,
@@ -15,7 +16,8 @@ export const users = [
 	  id_stola: 21,
 	  id_mesto: 14,
 	  date: '6.04.2020 17:01 (112дн. 19ч.)',
-	  place: 'Руддвор (гор.+60)'
+	  place: 'Руддвор (гор.+60)',
+	  status: false,
 	},
 	{
 	  id: 492,
@@ -24,7 +26,8 @@ export const users = [
 	  id_stola: 50,
 	  id_mesto: 12,
 	  date: '22.04.2020 12:40 (116дн. 23ч.)',
-	  place: 'Ламповая старое АБК'
+	  place: 'Ламповая старое АБК',
+	  status: false,
 	},{
 	  id: 190,
 	  name: 'Бекмаганбетов Мухамбет Мырзабаевич',
@@ -32,7 +35,8 @@ export const users = [
 	  id_stola: 50,
 	  id_mesto: 12,
 	  date: '22.04.2020 12:40 (116дн. 23ч.)',
-	  place: 'Ламповая старое АБК'
+	  place: 'Ламповая старое АБК',
+	  status: false,
 	},
 	{
 	  id: 231,
@@ -41,7 +45,8 @@ export const users = [
 	  id_stola: 21,
 	  id_mesto: 14,
 	  date: '6.04.2020 17:01 (112дн. 19ч.)',
-	  place: 'Руддвор (гор.+60)'
+	  place: 'Руддвор (гор.+60)',
+	  status: false,
 	},
 	{
 	  id: 492,
@@ -50,7 +55,8 @@ export const users = [
 	  id_stola: 50,
 	  id_mesto: 12,
 	  date: '22.04.2020 12:40 (116дн. 23ч.)',
-	  place: 'Ламповая старое АБК'
+	  place: 'Ламповая старое АБК',
+	  status: false,
 	},{
 	  id: 190,
 	  name: 'Бекмаганбетов Мухамбет Мырзабаевич',
@@ -58,7 +64,8 @@ export const users = [
 	  id_stola: 50,
 	  id_mesto: 12,
 	  date: '22.04.2020 12:40 (116дн. 23ч.)',
-	  place: 'Ламповая старое АБК'
+	  place: 'Ламповая старое АБК',
+	  status: false,
 	},
 	{
 	  id: 231,
@@ -67,7 +74,8 @@ export const users = [
 	  id_stola: 21,
 	  id_mesto: 14,
 	  date: '6.04.2020 17:01 (112дн. 19ч.)',
-	  place: 'Руддвор (гор.+60)'
+	  place: 'Руддвор (гор.+60)',
+	  status: false,
 	},
 	{
 	  id: 492,
@@ -76,7 +84,8 @@ export const users = [
 	  id_stola: 50,
 	  id_mesto: 12,
 	  date: '22.04.2020 12:40 (116дн. 23ч.)',
-	  place: 'Ламповая старое АБК'
+	  place: 'Ламповая старое АБК',
+	  status: false,
 	},
 	{
 	  id: 231,
@@ -85,7 +94,8 @@ export const users = [
 	  id_stola: 21,
 	  id_mesto: 14,
 	  date: '6.04.2020 17:01 (112дн. 19ч.)',
-	  place: 'Руддвор (гор.+60)'
+	  place: 'Руддвор (гор.+60)',
+	  status: false,
 	},
 	{
 	  id: 492,
@@ -94,7 +104,8 @@ export const users = [
 	  id_stola: 50,
 	  id_mesto: 12,
 	  date: '22.04.2020 12:40 (116дн. 23ч.)',
-	  place: 'Ламповая старое АБК'
+	  place: 'Ламповая старое АБК',
+	  status: false,
 	}
  ]
 
@@ -108,15 +119,13 @@ export const secured: Array<{ value: string; label: string }> = [ //  dropdown �
  { value: 'Didar Umirov', label: 'Didar Umirov' },
 ];
 
-export const options: Array<{ value: string; label: string; image: string }> = [ //  dropdown Статус и его опций
+export const options: Array<{ value: boolean; label: string; }> = [ //  dropdown Статус и его опций
  {
-   value: 'option1',
-   label: 'Смена 1 (9:00-19:00)',
-   image: '../../../assets/img/icon/lampoff',
+   value: true,
+   label: 'Включен',
  },
  {
-   value: 'option2',
-   label: 'Смена 2 (8:00-18:00)',
-   image: '/assets/img/icon/lampoff.svg',
+   value: false,
+   label: 'Выключен',
  },
 ];

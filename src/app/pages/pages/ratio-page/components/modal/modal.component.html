@@ -15,8 +15,8 @@
 		 <div class="input-field">
 			  <div class="form-group">
 					<label for="no">Номер рации</label>
-					<input type="number" formControlName="id" name="no" placeholder="Введите номер">
-			  </div>
+					<input type="number" formControlName="id" name="no" placeholder="Введите номер" required>
+				</div>
 			  <div class="form-group">
 					<label for="name">Закреплен</label>
 					<select formControlName="name" class="dropdown__secured">
@@ -39,11 +39,13 @@
 			  </div>
 			  <div class="form-group-exception">
 					<div class="form-status">
-						 <select formControlName="selectedStatus" class="dropdown">
+						 <select formControlName="status" class="dropdown">
 							  <option *ngFor="let option of options" [value]="option.value">{{ option.label }}</option>
 						 </select>
 					</div>
 			  </div>
+			  <p class="text-danger" *ngIf="!radioForm.valid && submitted && mode == 'add'" style="margin-left: 13px;">Заполните все поля</p>
+
 		 </div>
 		 <div class="button-field">
 			  <div class="button-block">

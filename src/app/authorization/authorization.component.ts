@@ -37,14 +37,12 @@ export class AuthorizationComponent implements OnInit {
     if (this.isFormInvalid) {
       return;
     }
-    console.log("YES");
       
     this.router.navigate(['pages']);
 
     const username = this.loginForm.get('username').value;
     const password = this.loginForm.get('password').value;
 
-<<<<<<< HEAD
     // this.authService.authenticate(username, password).subscribe(
     //   (response) => {
     //     const token = response.token;
@@ -55,17 +53,5 @@ export class AuthorizationComponent implements OnInit {
     //     console.error('Authentication error:', error);
     //   }
     // );
-=======
-    this.authService.authenticate(username, password).subscribe(
-      (response) => {
-        const token = response.token;
-        this.authService.setToken(token);
-        this.router.navigate(['pages']);
-      },
-      (error) => {
-        console.error('Authentication error:', error);
-      }
-    );
->>>>>>> 722a9fe1c7c7551d868e465e4f12be7e43c554bc
   }
 }
