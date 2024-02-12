@@ -15,7 +15,8 @@ export class AuthService {
   authenticate(login: string, password: string): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}`, { login, password });
     //return of ({ token: 'adadadada' });
-  }
+	 // Если Api не работает то вторую строчку,если работает то первую  
+	}
 
   isAuthenticated(): boolean {
     const token = localStorage.getItem(TOKEN);
