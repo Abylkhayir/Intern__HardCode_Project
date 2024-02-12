@@ -33,25 +33,22 @@ export class AuthorizationComponent implements OnInit {
   }
 
   onSubmit() {
-    
     if (this.isFormInvalid) {
       return;
     }
-      
-    this.router.navigate(['pages']);
 
     const username = this.loginForm.get('username').value;
     const password = this.loginForm.get('password').value;
 
-    // this.authService.authenticate(username, password).subscribe(
-    //   (response) => {
-    //     const token = response.token;
-    //     localStorage.setItem('token', token);
-    //     this.router.navigate(['pages']);
-    //   },
-    //   (error) => {
-    //     console.error('Authentication error:', error);
-    //   }
-    // );
+    this.authService.authenticate(username, password).subscribe(
+      (response) => {
+        const token = response.token;
+        this.authService.setToken(token);
+        this.router.navigate(['pages']);
+      },
+      (error) => {
+        console.error('Authentication error:', error);
+      }
+    );
   }
 }
