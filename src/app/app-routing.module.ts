@@ -10,13 +10,14 @@ const routes: Routes = [
         (m) => m.AuthorizationModule
       ),
   },
+  { path: 'logout', redirectTo: '/login', pathMatch: 'full' },
   {
-    path: 'pages',
+    path: '',
     loadChildren: () =>
       import('./pages/pages.module').then((m) => m.PagesModule),
-    //canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
+    pathMatch: 'prefix',
   },
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
 ];
 
 @NgModule({

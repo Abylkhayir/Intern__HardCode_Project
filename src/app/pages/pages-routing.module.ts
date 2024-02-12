@@ -17,7 +17,14 @@ const routes: Routes = [
             (m) => m.RatioPageModule
           ),
       },
-      // { path: not-found', component: notFoundCompopoe },
+      {
+        path: 'not-found',
+        loadChildren: () =>
+          import('./pages/Not-found/not-found/not-found.module').then(
+            (m) => m.NotFoundModule
+          ),
+      },
+      { path: '**', redirectTo: 'not-found', pathMatch: 'full' },
     ],
   },
 ];

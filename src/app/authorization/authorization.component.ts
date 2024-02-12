@@ -42,9 +42,9 @@ export class AuthorizationComponent implements OnInit {
 
     this.authService.authenticate(username, password).subscribe(
       (response) => {
-        const token = response.token;
+        const token = response?.result?.token;
         this.authService.setToken(token);
-        this.router.navigate(['pages']);
+        this.router.navigate(['']);
       },
       (error) => {
         console.error('Authentication error:', error);

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
+import { Router } from '@angular/router';
 
 const TOKEN = 'token';
 
@@ -10,7 +11,7 @@ const TOKEN = 'token';
 export class AuthService {
   private apiUrl = 'http://10.2.0.120:8080/api/Users/Login';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   authenticate(login: string, password: string): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}`, { login, password });
@@ -27,5 +28,6 @@ export class AuthService {
 
   logout(): void {
     localStorage.removeItem(TOKEN);
+	 this.router.navigate(['/logout']);
   }
 }
