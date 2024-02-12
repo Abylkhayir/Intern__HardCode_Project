@@ -8,13 +8,13 @@ const TOKEN = 'token';
   providedIn: 'root',
 })
 export class AuthService {
-  private apiUrl = 'http://10.2.0.120:9000';
+  private apiUrl = 'http://10.2.0.120:8080/api/Users/Login';
 
   constructor(private http: HttpClient) {}
 
-  authenticate(username: string, password: string): Observable<any> {
-    // return this.http.post<any>(`${this.apiUrl}/login`, { username, password });
-    return of ({ token: 'adadadada' });
+  authenticate(login: string, password: string): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}`, { login, password });
+    //return of ({ token: 'adadadada' });
   }
 
   isAuthenticated(): boolean {
@@ -22,11 +22,11 @@ export class AuthService {
     return !!token;
   }
 
-setToken(token: string): void {
-	localStorage.setItem(TOKEN, token);
-}
+  setToken(token: string): void {
+    localStorage.setItem(TOKEN, token);
+  }
 
-logout(): void {
-	localStorage.removeItem(TOKEN)
-}
+  logout(): void {
+    localStorage.removeItem(TOKEN);
+  }
 }
