@@ -3,28 +3,32 @@
 		 <img src="assets/img/icon/ico2.svg" alt="logo" class="logo">
 		 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
 			<div class="bg__container">
-			  <div class="title">
-					<img src="assets/img/icon/Outdoor.svg" alt="enter logo" class="logo-title">
-					<span>ВХОД В СИСТЕМУ </span>
-			  </div>
-			  <div class="form-group">
-					<label  for="username">Логин</label>
-					<input formControlName="username" type="email" name="username" placeholder="Введите логин" required>
-					<div class="case" [ngSwitch]="true">
-						<span *ngIf="loginForm.get('username').hasError('required')" class="text-danger">Заполните поле логин</span>
-						<span *ngIf="loginForm.get('username').hasError('cyrillic')" class="text-danger">Логин не должен содержать кириллицу</span>
-					</div>
-			  </div>
-			  <div class="form-group">
-					<label for="password">Пароль</label>
-					<input formControlName="password" type="password" name="password" placeholder="Введите пароль" required>
-					<span *ngIf="passwordError" class="case text-danger">Введите пароль содержащий от 6 символов</span>
-			  </div>
-			  <div class="form__button">
-					<button [disabled]="isFormInvalid" class="btn btn-success" type="submit">Войти</button>
-			  </div>
+				 <div class="title">
+					  <img src="assets/img/icon/Outdoor.svg" alt="enter logo" class="logo-title">
+					  <span>ВХОД В СИСТЕМУ </span>
+				 </div>
+				 <div class="form-group">
+					  <label for="username">Логин</label>
+					  <input formControlName="username" type="email" name="username" placeholder="Введите логин" required>
+					  <div class="case" *ngIf="loginForm.get('username').invalid">
+							<span class="text-danger" *ngIf="loginForm.get('username').hasError('required')">Заполните поле логин</span>
+							<span class="text-danger" *ngIf="loginForm.get('username').hasError('cyrillic')">Логин не должен содержать кириллицу</span>
+					  </div>
+				 </div>
+				 <div class="form-group">
+					  <label for="password">Пароль</label>
+					  <input formControlName="password" type="password" name="password" placeholder="Введите пароль" required>
+					  <div class="case" *ngIf="loginForm.get('password').invalid">
+							<span class="text-danger" *ngIf="loginForm.get('password').hasError('required')">Пароль обязателен</span>
+							<span class="text-danger" *ngIf="loginForm.get('password').hasError('minlength')">Введите пароль содержащий от 6 символов</span>
+					  </div>
+				 </div>
+				 <div class="form__button">
+					  <button [disabled]="loginForm.invalid" class="btn btn-success" type="submit">Войти</button>
+				 </div>
+				 <div *ngIf="invalidLogin" class="form__texterror">Неправильный логин или пароль</div>
 			</div>
 			<div class="form__bg"></div>
-		 </form>
+	  </form>
 	</div>
 </div>

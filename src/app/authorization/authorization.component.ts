@@ -13,6 +13,7 @@ export class AuthorizationComponent implements OnInit {
   loginForm: FormGroup;
   loginErrorType: number;
   passwordError: boolean = false;
+  invalidLogin: boolean = false;
 
   get isFormInvalid(): boolean {
     this.router.navigate['ratio-page'];
@@ -33,22 +34,23 @@ export class AuthorizationComponent implements OnInit {
   }
 
   onSubmit() {
-    if (this.isFormInvalid) {
-      return;
-    }
+	if (this.loginForm.invalid) {
+	  return;
+	}
 
-    const username = this.loginForm.get('username').value;
-    const password = this.loginForm.get('password').value;
+	const username = this.loginForm.get('username').value;
+	const password = this.loginForm.get('password').value;
 
-    this.authService.authenticate(username, password).subscribe(
-      (response) => {
-        const token = response?.result?.token;
-        this.authService.setToken(token);
-        this.router.navigate(['']);
-      },
-      (error) => {
-        console.error('Authentication error:', error);
-      }
-    );
-  }
+	this.authService.authenticate(username, password).subscribe(
+	  (response) => {
+		 const token = response?.result?.token;
+		 this.authService.setToken(token);
+		 this.router.navigate(['']);
+	  },
+	  (error) => {
+		 console.error('Authentication error:', error);
+		 this.invalidLogin = true;
+	  }
+	);
+ }
 }

@@ -111,3 +111,9 @@ button[disabled]:hover {
 	background-color: gray;
 	color: white;
 }
+
+.form__texterror{
+	color:rgba(157, 24, 46);
+	display: flex;
+	justify-content: center;
+}
