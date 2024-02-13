@@ -1,10 +1,9 @@
 .header{
 	background-image: url('/assets/img/icon/bg.svg');
 }
-
 .header__row {
 	display: flex;
-	justify-content: space-between;
+	gap: 5px;
 }
 .header__container {
 	height: 59px;
@@ -12,22 +11,20 @@
 .header__group {
 	width: 2.5%;
 	height: 49px;
-	border: 2px solid #222;
 	background-color: #222;
 	padding: 11px;
+	cursor: pointer;
 }
-
 .header__logo {
 	width: 5.7%;
 	height: 49px;
-	border: 2px solid #222;
 	background-color: #222;
 	padding: 9px;
+	cursor: pointer;
 }
 .logo__img{
 	width: 97%
 }
-
 .header__mine {
 	width: 10.9%;
 	height: 49px;
@@ -49,125 +46,35 @@
 	letter-spacing: 0.36px;
 	text-transform: uppercase;
 }
-.header__sectionone {
+.header__section {
 	display:flex;
-	justify-content: space-evenly;
+	gap: 12px;
 	align-items: center;
-	border: 2px solid #222;
+	padding: 0 20px;
 	background-color: #222;
 	height: 49px;
-	width: 11.7%;
+	max-width: 226px;
+	white-space: nowrap;
+	cursor: pointer;
 }
-.header__sectiontwo {
-	display:flex;
-	justify-content: space-evenly;
-	align-items: center;
-	border: 2px solid #222;
-	background-color: #222;
-	height: 49px;
-	width: 8.6%;
-}
-.header__sectionthree {
-	padding: 0px 20px;
-	display:flex;
-	justify-content: space-evenly;
-	align-items: center;
-	border: 2px solid #222;
-	background-color: #222;
-	height: 49px;
-	width: 7.5%;
-}
-.header__sectionfour {
-	display:flex;
-	justify-content: space-evenly;
-	align-items: center;
-	border: 2px solid #222;
-	background-color: #222;
-	height: 49px;
-	width: 11.6%;
-}
-.header__sectionfive {
-	padding: 0px 23.04px;
-	display:flex;
-	justify-content: start;
-	align-items: center;
-	border: 2px solid #222;
-	background-color: #222;
-	height: 49px;
-	width: 8.9%;
-}
-.header__sectionsix {
-	display:flex;
-	justify-content: space-evenly;
-	align-items: center;
-	border: 2px solid #222;
-	background-color: #222;
-	height: 49px;
-	width: 10.1%;
-}
-.section__textone {
+.section__text {
 	color: #808080;
 	font-family: Roboto;
 	font-size: 16px;
-	font-style: normal;
 	font-weight: 500;
-	line-height: 16px; /* 100% */
+	line-height: 16px;
 	text-transform: uppercase;
-}
-.section__texttwo {
-	color: #808080;
-font-family: Roboto;
-font-size: 16px;
-font-style: normal;
-font-weight: 500;
-line-height: 16px; /* 100% */
-text-transform: uppercase;
-}
-.section__textthree {
-	color: #808080;
-font-family: Roboto;
-font-size: 16px;
-font-style: normal;
-font-weight: 500;
-line-height: 16px; /* 100% */
-text-transform: uppercase;
-}
-.section__textfour {
-	color: #808080;
-font-family: Roboto;
-font-size: 16px;
-font-style: normal;
-font-weight: 500;
-line-height: 16px; /* 100% */
-text-transform: uppercase;
-}
-.section__textfive {
-	color: #808080;
-font-family: Roboto;
-font-size: 16px;
-font-style: normal;
-font-weight: 500;
-line-height: 16px; /* 100% */
-text-transform: uppercase;
-margin-left: 12px;
-}
-.section__textsix {
-	color: #808080;
-font-family: Roboto;
-font-size: 16px;
-font-style: normal;
-font-weight: 500;
-line-height: 16px; /* 100% */
-text-transform: uppercase;
 }
 .header__profile {
 	display: flex;
+	flex: 1;
 	align-items: center;
 	justify-content: space-evenly;
 	width: 14.21%;
 	border: 2px solid #222;
 	background-color: #222;
 	height: 49px;
+	cursor: pointer;
 }
 .profile__date {
 	color: #808080;
@@ -182,26 +89,22 @@ font-size: 14px;
 .header__settings {
 	width: 2.55%;
 	height: 49px;
-	border: 2px solid #222;
 	background-color: #222;
 	justify-content: center;
 	text-align: center;
+	cursor: pointer;
+	border: none;
 }
 .header__logout {
 	width: 2.55%;
 	height: 49px;
-	border: 2px solid #222;
 	background-color: #222;
 	justify-content: center;
 	text-align: center;
+	cursor: pointer;
+	border: none;
 }
-
-.green {
-	background-color:#222222 ;
-	border-radius: none;
-}
-
-.red {
+.active {
 	background-color: #333;
-	border-radius: 3px solid #CCCCCC;
+	border-bottom: 3px solid #CCCCCC;
 }
