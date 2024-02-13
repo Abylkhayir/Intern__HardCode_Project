@@ -1,28 +1,21 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../authorization/authorization.service';
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
 	selector: 'app-header',
 	templateUrl: './header.component.html',
 	styleUrl: './header.component.scss',
 	standalone: true,
+	imports: [CommonModule]
 	})
 	export class HeaderComponent {
-	toolBarOptionsBackground: string[] = [];
-	toolBarOptionsBorderBottom: string[] = [];
-	previousVal: string = '';
-	constructor(private AuthService: AuthService, private router: Router) {
-		this.toolBarOptionsBackground[this.previousVal] = '#333';
-		this.toolBarOptionsBorderBottom[this.previousVal] = '3px solid #CCCCCC';
-	}
-	onSelect(e) {
-		this.toolBarOptionsBackground[e] = '#333';
-		this.toolBarOptionsBorderBottom[e] = '3px solid #CCCCCC';
-		this.toolBarOptionsBackground[this.previousVal] = '#222222';
-		this.toolBarOptionsBorderBottom[this.previousVal] = 'none';
-		this.previousVal = e;
-	}
+		toggleButtons: boolean[] = new Array(8).fill(true);
+			constructor(private AuthService: AuthService, private router: Router) {}
+	enableDisableRule(index: number) {
+		this.toggleButtons[index] = !this.toggleButtons[index]; // Изменяем состояние выбранной кнопки по индексу
+	 }
 	logout() {
 		this.AuthService.logout();
 	}

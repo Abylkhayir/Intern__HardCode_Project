@@ -3,48 +3,43 @@
 		<div class="header__row">
 			<button class="header__group"><img class="group__image" src="assets/img/icon/Vector.svg" alt=""></button>
 			<button class="header__logo"><img class="logo__img" src="assets/img/icon/ico2.svg" alt=""></button>
-			<div class="header__mine" (click)="onSelect('date')" >
+			<div class="header__mine" >
 				<div class="mine__title">Рудник «Алмазный»</div>
 				<div class="mine__date">10:08  28.ФЕВ.2020 </div>
 			</div>
-			<button class="header__sectionone" (click)="onSelect('give fonar')" [style.background-color] = "toolBarOptionsBackground['give fonar']"
-			[style.border-bottom] = "toolBarOptionsBorderBottom['give fonar']">
+			<button class="header__sectionone" (click)="enableDisableRule(0)" [ngClass]="{'green' : toggleButtons[0], 'red': !toggleButtons[0]}">
 				<div class="section__imgone"><img src="assets/img/icon/helmet.svg" alt=""></div>
 				<div class="section__textone">Выдача фонарей</div>
 			</button>
-			<button class="header__sectiontwo" (click)="onSelect('personal')" [style.background-color] = "toolBarOptionsBackground['personal']"
-			[style.border-bottom] = "toolBarOptionsBorderBottom['personal']">
+			<button class="header__sectiontwo"(click)="enableDisableRule(1)" [ngClass]="{'green' : toggleButtons[1], 'red': !toggleButtons[1]}">
 				<div class="section__imgtwo"><img src="assets/img/icon/twoman.svg" alt=""></div>
 				<div class="section__texttwo">Персонал</div>
 			</button>
-			<button class="header__sectionthree" (click)="onSelect('ratio')" [style.background-color] = "toolBarOptionsBackground['ratio']"
-			[style.border-bottom] = "toolBarOptionsBorderBottom['ratio']">
+			<button class="header__sectionthree" (click)="enableDisableRule(2)" [ngClass]="{'green' : toggleButtons[2], 'red': !toggleButtons[2]}">
 				<div class="section__imgthree"><img src="assets/img/icon/ratio.svg" alt=""></div>
 				<div class="section__textthree">Рации</div>
 			</button>
-			<button class="header__sectionfour" (click)="onSelect('fonar setting')" [style.background-color] = "toolBarOptionsBackground['fonar setting']"
-			[style.border-bottom] = "toolBarOptionsBorderBottom['fonar setting']">
+			<button class="header__sectionfour" (click)="enableDisableRule(3)" [ngClass]="{'green' : toggleButtons[3], 'red': !toggleButtons[3]}">
 				<div class="section__imgfour"><img src="assets/img/icon/repair.svg" alt=""></div>
 				<div class="section__textfour">Ремонт фонарей</div>
 			</button>
-			<button class="header__sectionfive" (click)="onSelect('tabel')" [style.background-color] = "toolBarOptionsBackground['tabel']"
-			[style.border-bottom] = "toolBarOptionsBorderBottom['tabel']">
+			<button class="header__sectionfive" (click)="enableDisableRule(4)" [ngClass]="{'green' : toggleButtons[4], 'red': !toggleButtons[4]}">
 				<div class="section__imgfive"><img src="assets/img/icon/table.svg" alt=""></div>
 				<div class="section__textfive">Табель</div>
 			</button>
-			<button class="header__sectionsix" (click)="onSelect('orgstructure')" [style.background-color] = "toolBarOptionsBackground['orgstructure']"
-			[style.border-bottom] = "toolBarOptionsBorderBottom['orgstructure']">
+			<button class="header__sectionsix"(click)="enableDisableRule(5)" [ngClass]="{'green' : toggleButtons[5], 'red': !toggleButtons[5]}">
 				<div class="section__imgsix"><img src="assets/img/icon/structure.svg" alt=""></div>
 				<div class="section__textsix">Оргструктура</div>
 			</button>
-			<div class="header__profile" (click)="onSelect('dispetcher')">
+			<div class="header__profile"(click)="enableDisableRule(6)" [ngClass]="{'green' : toggleButtons[6], 'red': !toggleButtons[6]}">
 				<div class="profile__image"><img src="assets/img/icon/man.svg" alt=""></div>
 				<div class="profile__title">
 					<div class="profile__date">8:03 16.дек.2019</div>
 					<div class="profile__name">Фамилия И.О. – Диспетчер</div>
 				</div>
 			</div>
-			<button class="header__settings" (click)="onSelect('settings')"><img src="assets/img/icon/gear.svg" alt=""></button>
+			<button class="header__settings" (click)="enableDisableRule(7)" [ngClass]="{'green' : toggleButtons[7], 'red': !toggleButtons[7]}">
+				<img src="assets/img/icon/gear.svg" alt=""></button>
 			<button class="header__logout" (click)="logout()"><img src="assets/img/icon/Outdoor.svg" alt=""></button>
 		</div>
 	</div>
