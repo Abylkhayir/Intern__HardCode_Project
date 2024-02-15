@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { DialogModule } from '@angular/cdk/dialog';
-import {MatDialog} from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { ModalComponent } from '../modal/modal.component';
 
 @Component({
@@ -10,11 +10,7 @@ import { ModalComponent } from '../modal/modal.component';
   templateUrl: './filter.component.html',
   styleUrl: './filter.component.scss',
   standalone: true,
-  imports: [
-    CommonModule,
-    FormsModule,
-    DialogModule,
-  ],
+  imports: [CommonModule, FormsModule, DialogModule],
 })
 export class FilterComponent {
   selectedOption: string;
@@ -57,7 +53,8 @@ export class FilterComponent {
   ];
 
   openDialog(): void {
-    this.dialog.open(ModalComponent, {
-    });
+    this.dialog.open(ModalComponent, {});
+
   }
+
 }

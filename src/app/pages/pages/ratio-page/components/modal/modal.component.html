@@ -15,37 +15,36 @@
 		 <div class="input-field">
 			  <div class="form-group">
 					<label for="no">Номер рации</label>
-					<input type="number" formControlName="id" name="no" placeholder="Введите номер" required>
+					<input type="number" formControlName="radioNumber" name="no" placeholder="Введите номер" required>
 				</div>
 			  <div class="form-group">
 					<label for="name">Закреплен</label>
-					<select formControlName="name" class="dropdown__secured">
-						<option *ngFor="let secured of secured" [value]="secured.value">{{ secured.label }}</option>
+					<select formControlName="employeeId" class="dropdown__secured">
+						<option *ngFor="let secured of securedList" [value]="secured.value">{{ secured.label }}</option>
 				    </select>
 			  </div>
 			  <div class="form-group">
 					<label for="id_taga">ID тага</label>
-					<input type="number" formControlName="id_taga" name="id_taga" placeholder="Введите ID">
+					<input type="number" formControlName="tagId" name="id_taga" placeholder="Введите ID">
 			  </div>
 			  <div class="form-group-exception">
 					<div class="form-group">
 						 <label for="stol">№ стола </label>
-						 <input type="number" formControlName="id_stola" name="stol" placeholder="Введите номер стола">
+						 <input type="number" formControlName="tableNumber" name="stol" placeholder="Введите номер стола">
 					</div>
 					<div class="form-group">
 						 <label for="mesto">Место</label>
-						 <input type="number" formControlName="id_mesto" name="mesto" placeholder="Введите номер места">
+						 <input type="number" formControlName="placeNumber" name="mesto" placeholder="Введите номер места">
 					</div>
 			  </div>
 			  <div class="form-group-exception">
 					<div class="form-status">
-						 <select formControlName="status" class="dropdown">
+						 <select formControlName="radioStatus" class="dropdown">
 							  <option *ngFor="let option of options" [value]="option.value">{{ option.label }}</option>
 						 </select>
 					</div>
 			  </div>
 			  <p class="text-danger" *ngIf="!radioForm.valid && submitted && mode == 'add'" style="margin-left: 13px;">Заполните все поля</p>
-
 		 </div>
 		 <div class="button-field">
 			  <div class="button-block">
