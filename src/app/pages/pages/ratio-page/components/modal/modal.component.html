@@ -10,7 +10,7 @@
 						<path class="close-button-icon" d="M1.42041 17.5672L6.25567 12.7319L17.5657 1.42041" stroke="#4D4D4D" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
 						<path class="close-button-icon" d="M17.5672 17.5672L12.7319 12.7319L1.42041 1.42041" stroke="#4D4D4D" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
 				</svg>
-			</div>	
+			</div>
 		 </div>
 		 <div class="input-field">
 			  <div class="form-group">
@@ -52,7 +52,7 @@
 						 <img src="/assets/img/icon/cancel.svg">
 						 Отменить
 					</button>
-					<button type="submit" class="btn btn-success">
+					<button [disabled]="radioForm.invalid" type="submit" class="btn btn-success">
 						 <img src="/assets/img/icon/save.svg">Сохранить
 					</button>
 			  </div>

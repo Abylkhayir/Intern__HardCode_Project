@@ -12,7 +12,7 @@ import { UserService } from '../service/user-service.service';
 @Component({
   standalone: true,
   selector: 'app-modal',
-  templateUrl: './modal.component.html',
+  templateUrl:'./modal.component.html',
   styleUrl: './modal.component.scss',
   imports: [CommonModule, ReactiveFormsModule],
 })

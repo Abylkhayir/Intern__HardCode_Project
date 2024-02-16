@@ -56,12 +56,14 @@ export class UsersComponent implements OnInit {
         ? item.placeNumber == this.inputVal.placeNumber
         : true;
 
+      console.log(stolFilter, mestoFilter);
+
       const statusFilter =
         this.inputVal.radioStatus === 'undefined'
           ? true
           : item.radioStatus === (this.inputVal.radioStatus === 'true');
 
-      return nameFilter && stolFilter && mestoFilter && statusFilter;
+      return (nameFilter && stolFilter && mestoFilter) || statusFilter;
     });
   }
   @ViewChild('scrollContainer') private scrollContainer: ElementRef;
