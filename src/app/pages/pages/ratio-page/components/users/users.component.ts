@@ -52,18 +52,21 @@ export class UsersComponent implements OnInit {
       const stolFilter = this.inputVal.tableNumber
         ? item.tableNumber == this.inputVal.tableNumber
         : true;
+
       const mestoFilter = this.inputVal.placeNumber
         ? item.placeNumber == this.inputVal.placeNumber
         : true;
-
-      console.log(stolFilter, mestoFilter);
 
       const statusFilter =
         this.inputVal.radioStatus === 'undefined'
           ? true
           : item.radioStatus === (this.inputVal.radioStatus === 'true');
 
-      return (nameFilter && stolFilter && mestoFilter) || statusFilter;
+      if (this.inputVal.radioStatus) {
+        return nameFilter && stolFilter && mestoFilter && statusFilter;
+      }
+
+      return nameFilter && stolFilter && mestoFilter;
     });
   }
   @ViewChild('scrollContainer') private scrollContainer: ElementRef;
