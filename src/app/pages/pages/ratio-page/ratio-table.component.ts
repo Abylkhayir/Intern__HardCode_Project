@@ -6,12 +6,14 @@ import { Component } from '@angular/core';
   styleUrl: './ratio-table.component.css',
 })
 export class RatioTableComponent {
-	inputVal:object;
+  inputVal: object;
+  newItemAdded: boolean;
   updateInputVal(newValue: object) {
-    this.inputVal = newValue; 
-    console.log('Updated inputVal:', this.inputVal); 
+    this.inputVal = newValue;
+    console.log('Updated inputVal:', this.inputVal);
   }
 
-
-  
+  onNewItemAdded(): void {
+    this.newItemAdded = !this.newItemAdded;
+  }
 }

@@ -37,10 +37,6 @@
 
 	.user-data{
 		 display: flex;
-
-		 .user-data-content{
-			  
-		 }
 		 .user-data-content-wide{
 			  margin-right: 1px;
 			  margin-bottom: 5px;
@@ -104,7 +100,7 @@
 					font-size: 16px;
 					font-weight: 400;
 			  }
-		 }   
+		 }
 		 .user-data-content-small{
 			  background-color: #222222;
 			  margin-right: 1px;
@@ -135,7 +131,7 @@
 					.delete-button-icon{
 						 fill: red;
 					}
-			  }   
+			  }
 		 }
 	}
 }
@@ -144,19 +140,19 @@
 body::-webkit-scrollbar {
 	width: 8px; /* Ширина скроллбара */
  }
- 
+
  /* Оформление полосы скроллбара */
  body::-webkit-scrollbar-thumb {
 	background-color: #333333; /* Цвет полосы скроллбара */
 	border-radius: 6px; /* Закругление углов полосы */
 	border: 3px solid #222222; /* Обводка полосы скроллбара */
  }
- 
+
  /* Оформление трека (фона) скроллбара */
  body::-webkit-scrollbar-track {
 	background-color: #f1f1f1; /* Цвет фона скроллбара */
  }
- 
+
  /* Изменение цвета при наведении на ползунок скроллбара */
  body::-webkit-scrollbar-thumb:hover {
 	background-color: #222222;

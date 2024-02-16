@@ -11,7 +11,7 @@
 		 <div class="title-block-small"><span>Ремонт</span></div>
 		 <div class="title-block-small"><span>Удалить</span></div>
 	</div>
-	<div class="user-data" *ngFor="let user of (checkFilter ? filteredArr : newArr); let i = index">
+	<div class="user-data" *ngFor="let user of filteredArr; let i = index">
 		 <div class="user-data-content-wide" [style.background-color]="color[i]">
 			  <span class="bright-span">{{user.radioNumber}}</span>
 			  <span class="dark-span">{{user.fullName}}</span>
@@ -36,11 +36,11 @@
 			  <img src="/assets/img/icon/historyRepair.svg">
 		 </div>
 		 <div class="user-data-content-diff d-flex" [style.background-color]="color[i]">
-			  <span class="bright-span">{{user.lastRegistry}}</span>
+			  <span class="bright-span">{{user.lastRegistry | date: 'dd.MM.yyyy'}}</span>
 			  <span class="dark-span">{{user.placeOfLastSynchronization}}</span>
 		 </div>
 		 <div class="user-data-content-small" [style.background-color]="color[i]">
-			  @if (user.radioStatus == 'true') {
+			  @if (user.radioStatus == true) {
 					<img src="/assets/img/icon/lampon.svg">
 			  }
 			  @else {

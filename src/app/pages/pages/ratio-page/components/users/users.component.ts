@@ -23,14 +23,45 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./users.component.scss'],
   imports: [CommonModule, FormsModule, FilterComponent, HttpClientModule],
 })
-export class UsersComponent implements OnInit, OnChanges {
+export class UsersComponent implements OnInit {
   @Input() inputVal: any;
+  @Input() set toUpdate(value: boolean) {
+    if (value) {
+      this.updateList();
+    }
+  }
 
   color: string[] = [];
   fonarClick: boolean[] = [];
   newArr: User[] = [];
   checkFilter: boolean = false;
-  filteredArr: User[] = [];
+  get filteredArr(): User[] {
+    return this.newArr.filter((item) => {
+      console.log('inputVal: ', this.inputVal);
+      if (this.inputVal == null) {
+        return true;
+      }
+      const nameFilter = this.inputVal.employdId
+        ? item.fullName
+            .toLowerCase()
+            .includes(this.inputVal.employdId.toLowerCase())
+        : true;
+
+      const stolFilter = this.inputVal.tableNumber
+        ? item.tableNumber == this.inputVal.tableNumber
+        : true;
+      const mestoFilter = this.inputVal.placeNumber
+        ? item.placeNumber == this.inputVal.placeNumber
+        : true;
+
+        const statusFilter = this.inputVal.radioStatus === "undefined"
+        ? true
+        : item.radioStatus === (this.inputVal.radioStatus === 'true');
+
+
+      return nameFilter && stolFilter && mestoFilter && statusFilter;
+    });
+  }
 
   constructor(
     private userService: UserService,
@@ -38,52 +69,8 @@ export class UsersComponent implements OnInit, OnChanges {
     private http: HttpClient
   ) {}
 
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log('Value from Users:', this.inputVal);
-    if (
-      this.inputVal.inputName != '' ||
-      this.inputVal.inputMesto != null ||
-      this.inputVal.inputStol != null
-    ) {
-      this.checkFilter = true;
-    } else {
-      this.checkFilter = false;
-    }
-    this.filteredArr = this.newArr.filter((item) => {
-      const nameFilter = this.inputVal.inputName
-        ? item.fullName
-            .toLowerCase()
-            .includes(this.inputVal.inputName.toLowerCase())
-        : true;
-      const stolFilter = this.inputVal.inputStol
-        ? item.tableNumber == this.inputVal.inputStol
-        : true;
-      const mestoFilter = this.inputVal.inputMesto
-        ? item.placeNumber == this.inputVal.inputMesto
-        : true;
-
-      return nameFilter && stolFilter && mestoFilter;
-    });
-  }
-
-  test = [1, 2, 3, 4];
-  users$ = of(this.test);
-
-  obs: any;
-
   ngOnInit(): void {
-    for (let i = 0; i < 100; i++) {
-      this.fonarClick[i] = false;
-      if (i % 2 == 0) {
-        this.color[i] = '#222';
-      } else {
-        this.color[i] = 'rgba(34, 34, 34, 0.50)';
-      }
-    }
-
-    this.userService.getData().subscribe((data: any) => {
-      this.newArr = data?.result ?? [];
-    });
+    this.updateList();
   }
 
   updateList(): void {
@@ -93,7 +80,6 @@ export class UsersComponent implements OnInit, OnChanges {
   }
 
   onUpdateUser(index: number) {
-    console.log(index, this.newArr[index]);
     this.dialog
       .open(ModalComponent, {
         data: {

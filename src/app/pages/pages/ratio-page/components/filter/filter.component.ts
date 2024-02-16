@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { DialogModule } from '@angular/cdk/dialog';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalComponent } from '../modal/modal.component';
+import { UserService } from '../service/user-service.service';
 
 @Component({
   selector: 'app-filter',
@@ -13,21 +14,29 @@ import { ModalComponent } from '../modal/modal.component';
   imports: [CommonModule, FormsModule, DialogModule],
 })
 export class FilterComponent {
-  selectedOption: string;
+  newArr: User[] = [];
+  selectedOptionValue?: boolean;
+
   inputVal: string;
   inputStol: number;
   inputMesto: number;
-  @Output() inputValChange = new EventEmitter<{}>();
+  options: Array<{ value: boolean | undefined; label: string }> = [
+    { value: undefined, label: 'Все статусы рации' },
+    { value: true, label: 'Рация включена' },
+    { value: false, label: 'Рация выключена' },
+  ];
 
-  constructor(public dialog: MatDialog) {
-    this.selectedOption = this.options[0].value;
-  }
+  @Output() inputValChange = new EventEmitter<{}>();
+  @Output() newItemAdded = new EventEmitter<void>();
+
+  constructor(public dialog: MatDialog) {}
 
   getInputVal() {
     this.inputValChange.emit({
-      inputName: this.inputVal,
-      inputStol: this.inputStol,
-      inputMesto: this.inputMesto,
+      employdId: this.inputVal,
+      tableNumber: this.inputStol,
+      placeNumber: this.inputMesto,
+      radioStatus: this.selectedOptionValue,
     });
   }
 
@@ -38,23 +47,30 @@ export class FilterComponent {
       inpuName: this.inputVal,
       inputStol: this.inputStol,
       inputMesto: this.inputMesto,
+      radioStatus: this.selectedOptionValue,
     });
   }
 
-  onSelectChange(event: Event): void {
-    const selectElement = event.target as HTMLSelectElement;
-    this.selectedOption = selectElement.value;
-  }
-
-  options: Array<{ value: string; label: string }> = [
-    { value: 'option1', label: 'Все статусы рации' },
-    { value: 'option2', label: 'Option 2' },
-    { value: 'option3', label: 'Option 3' },
-  ];
-
   openDialog(): void {
-    this.dialog.open(ModalComponent, {});
-
+    this.dialog
+      .open(ModalComponent, {})
+      .afterClosed()
+      .subscribe((response: boolean) => {
+        if (response) {
+          this.newItemAdded.emit();
+        }
+      });
   }
+}
 
+interface User {
+  id: number;
+  fullName: string;
+  tagId: number;
+  lastRegistry: string;
+  tableNumber: number;
+  placeNumber: number;
+  placeOfLastSynchronization: string;
+  radioStatus: boolean;
+  radioNumber: number;
 }

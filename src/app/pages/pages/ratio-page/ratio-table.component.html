@@ -1,4 +1,4 @@
 <div class="main">
-	<app-filter (inputValChange)="updateInputVal($event)"></app-filter>
-	<app-users [inputVal]="inputVal"></app-users>
+	<app-filter (inputValChange)="updateInputVal($event)" (newItemAdded)="onNewItemAdded()"></app-filter>
+	<app-users [inputVal]="inputVal" [toUpdate]="newItemAdded"></app-users>
 </div>

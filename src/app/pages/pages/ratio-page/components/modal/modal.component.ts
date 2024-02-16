@@ -87,11 +87,11 @@ export class ModalComponent {
     if (this.mode === 'add') {
       const data: Radio = this.radioForm.value;
       data.employeeId = +data.employeeId;
-      data.radioStatus = !!data.radioStatus;
-      this.userService.addData(this.radioForm.value).subscribe(
+      data.radioStatus = this.radioForm.value.radioStatus === 'true';
+            this.userService.addData(this.radioForm.value).subscribe(
         (response) => {
           console.log('Data added successfully', response);
-          this.dialogRef.close();
+          this.dialogRef.close(true);
         },
         (error) => {
           console.error('Failed to add data', error);
@@ -101,12 +101,12 @@ export class ModalComponent {
     } else {
       const data: Radio = this.radioForm.value;
       data.employeeId = +data.employeeId;
-      data.radioStatus = !!data.radioStatus;
+      data.radioStatus = this.radioForm.value.radioStatus === 'true';
       console.log('asdasd: ', data);
       this.userService.editData(this.radioForm.value).subscribe(
         (response) => {
           console.log('Data updated successfully', response);
-          this.dialogRef.close();
+          this.dialogRef.close(true);
         },
         (error) => {
           console.error('Failed to update data', error);
@@ -117,7 +117,7 @@ export class ModalComponent {
   }
 
   closeDialog() {
-    this.dialogRef.close();
+    this.dialogRef.close(false);
   }
 }
 
