@@ -44,9 +44,9 @@ export class FilterComponent {
     this.inputStol = null;
     this.inputMesto = null;
     this.inputValChange.emit({
-      inpuName: this.inputVal,
-      inputStol: this.inputStol,
-      inputMesto: this.inputMesto,
+      employId: this.inputVal,
+      tableNumber: this.inputStol,
+      placeNumber: this.inputMesto,
       radioStatus: this.selectedOptionValue,
     });
   }

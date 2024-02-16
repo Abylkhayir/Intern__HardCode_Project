@@ -1,9 +1,11 @@
 import {
   Component,
+  ElementRef,
   Input,
   OnChanges,
   OnInit,
   SimpleChanges,
+  ViewChild,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -54,13 +56,22 @@ export class UsersComponent implements OnInit {
         ? item.placeNumber == this.inputVal.placeNumber
         : true;
 
-        const statusFilter = this.inputVal.radioStatus === "undefined"
-        ? true
-        : item.radioStatus === (this.inputVal.radioStatus === 'true');
-
+      const statusFilter =
+        this.inputVal.radioStatus === 'undefined'
+          ? true
+          : item.radioStatus === (this.inputVal.radioStatus === 'true');
 
       return nameFilter && stolFilter && mestoFilter && statusFilter;
     });
+  }
+  @ViewChild('scrollContainer') private scrollContainer: ElementRef;
+  private scrollToBottom(): void {
+    setTimeout(() => {
+      try {
+        this.scrollContainer.nativeElement.scrollTop =
+          this.scrollContainer.nativeElement.scrollHeight;
+      } catch (err) {}
+    }, 100);
   }
 
   constructor(
@@ -76,6 +87,7 @@ export class UsersComponent implements OnInit {
   updateList(): void {
     this.userService.getData().subscribe((data: any) => {
       this.newArr = data?.result ?? [];
+      this.scrollToBottom();
     });
   }
 
